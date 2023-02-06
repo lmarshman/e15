@@ -3,7 +3,7 @@
 
 <head>
     <title>Practice App</title>
-    <meta> charset='utf-8'>
+    <meta charset='utf-8'>
     <link href=data: , rel=icon>
 </head>
 
