@@ -15,15 +15,30 @@
     <p>Enter a word to find out:</p>
     <ul>
         <li>Is it a Palindrome? (Same forwards and backwards)</li>
-        <li>How man vowels does it contain</li>
+        <li>How many vowels does it contain</li>
         <li>What the word would look like if every letter was shifted +1 places in the alphabet</li>
     </ul>
-    <form method='POST' action='index.php'>
+    <form method='POST' action='process.php'>
         <label for='input'>Your word:</label>
         <input type='text' name='input' id='input'>
         <button type='submit'>Submit</button>
     </form>
 
+
+    <?php if (isset($input)) { ?>
+    <h2>Results for: <?php echo $input; ?></h2>
+    <p>Is it a palindrome? <?php if ($palindrome) { ?>
+        Yes
+        <?php } else { ?>
+        No
+        <?php } ?> </p>
+    <p>How many vowels does it have? <?php if ($vowel_count < 1) { ?>
+        0
+        <?php } else { ?>
+        <?php echo $vowel_count; ?>
+        <?php } ?> </p>
+    <p>Letter shift: <?php echo $letter_shift; ?></p>
+    <?php } ?>
 
 </body>
 
