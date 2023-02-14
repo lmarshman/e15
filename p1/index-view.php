@@ -24,22 +24,25 @@
         <button type='submit'>Submit</button>
     </form>
 
-
+    <!--Checks if there is input from the User. If yes, it displays the results, if not, the
+    below code is hidden-->
     <?php if (isset($input)) { ?>
     <h2>Results for: <?php echo $input; ?></h2>
+    <!--Displays the results for whether or not the user input is a palindrome.-->
     <p>Is it a palindrome? <?php if ($palindrome) { ?>
         Yes
         <?php } else { ?>
         No
         <?php } ?> </p>
+    <!--Displays the amount of vowels the user input has.-->
     <p>How many vowels does it have? <?php if ($vowel_count < 1) { ?>
         0
         <?php } else { ?>
         <?php echo $vowel_count; ?>
         <?php } ?> </p>
+    <!--Displays the shift version of the user input word-->
     <p>Letter shift: <?php echo $letter_shift; ?></p>
     <?php } ?>
-
 </body>
 
 </html>
