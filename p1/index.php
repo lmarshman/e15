@@ -10,6 +10,7 @@ if (isset($_SESSION['results'])) {
     $vowel_count = $results['vowel_count'];
     $letter_shift = $results['letter_shift'];
     $input = $results['input'];
+    $input_pr = $results['input_pr'];
     
     # Clears session variables.
     $_SESSION['results'] = null;

@@ -5,11 +5,12 @@ session_start();
 # Global variable that stores the input from the user.
 $input = $_POST['input'];
 
+
+# Makes the string all lowercase letters.
+$input_l = strtolower($input);
 /* This variable is used to simplify the palindrome and vowel counting loops. 
 It removes no alphabetic characters from the string.*/
-$input_pr = preg_replace("/[^a-z]/", '', $input);
-# Makes the string all lowercase letters.
-$input_l = strtolower($input_pr);
+$input_pr = preg_replace("/[^a-z]/", '', $input_l);
 
 # Sets the palindrome variable to true.
 $palindrome = true;
@@ -18,7 +19,7 @@ $palindrome = true;
 first and last letter and indexs inward until either the letters don't match, or it completes
 the loop.*/
 for ($i = 0; $i < strlen($input_l) / 2; $i++) {
-    if ($input_l[$i] != $input_l[$len - 1 - $i]) {
+    if ($input_pr[$i] != $input_pr[$len - 1 - $i]) {
         $palindrome = false;
     }
 }
@@ -78,6 +79,7 @@ $_SESSION['results'] = [
     'input' => $input,
     'palindrome' => $palindrome,
     'vowel_count' => $vowel_count,
+    'input_pr' => $input_pr
 ];
 
 header('Location: index.php');

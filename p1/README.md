@@ -8,6 +8,7 @@
     + ord()
     + chr()
     + ctype_alpha
-+ I was struggling to use the preg_replace() function so I referenced the this [stack overflow page](https://stackoverflow.com/questions/659025/how-to-remove-non-alphanumeric-characters).
++ I was struggling to use the preg_replace() function so I referenced this [stack overflow page](https://stackoverflow.com/questions/659025/how-to-remove-non-alphanumeric-characters).
 
 ## Notes for instructor
+I commented my code and included a few notes for the instructor where it seemed appropriate. However, if any of the comments would be more appropriate to be placed here, pleae do not hesiate to let me know. 
