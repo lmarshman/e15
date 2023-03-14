@@ -19,8 +19,9 @@ class BookController extends Controller
         $bookData = file_get_contents(database_path('books.json'));
         $books = json_decode($bookData, true);
 
-        $searchType = $request->input('searchType', 'title');
-        $searchTerms = $request->input('searchTerms', '');
+        $searchTerms = $request->input('searchTerms', null);
+        $searchType = $request->input('searchType', null);
+
         
         $searchResults = [];
 
@@ -31,9 +32,9 @@ class BookController extends Controller
         }
 
         return redirect('/')->with([
-            'searchResults' => $searchResults,
             'searchTerms' => $searchTerms,
             'searchType' => $searchType,
+            'searchResults' => $searchResults
         ]);
     }
 

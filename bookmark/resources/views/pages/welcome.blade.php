@@ -19,7 +19,7 @@
                 Search type:
             </label>
 
-            <input type='radio' name='searchType' id='title' value='title' checked>
+            <input type='radio' name='searchType' id='title' value='title' {{ $searchType == 'title' ? 'checked' : '' }}>
             <label for='title'> Title</label>
 
             <input type='radio' name='searchType' id='author' value='author'>

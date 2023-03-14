@@ -12,10 +12,10 @@ class PageController extends Controller
         $searchTerms = session('searchTerms', null);
         $searchType = session('searchType', null);
 
-        return view('pages/welcome', [
+        return view('pages/welcome',[
+            'searchResults' => $searchResults,
             'searchTerms' => $searchTerms,
             'searchType' => $searchType,
-            'searchResults' => $searchResults
         ]);
     }
     
