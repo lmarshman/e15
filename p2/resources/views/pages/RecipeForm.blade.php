@@ -8,7 +8,7 @@
     <h1>Recipe Conversion Form</h1>
     <div class="container-fluid">
         <div class="p-5 mb-3 bg-light rounded col-md-11">
-            <form>
+            <form method='GET' action=>
                 @csrf
                 <div class="row mb-3">
                     <label class="visually-hidden" for="autoSizingInput">Convert:</label>
