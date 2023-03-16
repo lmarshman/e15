@@ -10,7 +10,7 @@
         <fieldset>
             <label for='searchTerms'>
                 Search terms:
-                <input type='text' name='searchTerms' value='{{ $searchTerms }}'>
+                <input type='text' name='searchTerms' value='{{ old('searchTerms') }}'>
             </label>
         </fieldset>
 
@@ -19,7 +19,8 @@
                 Search type:
             </label>
 
-            <input type='radio' name='searchType' id='title' value='title' {{ $searchType == 'title' ? 'checked' : '' }}>
+            <input type='radio' name='searchType' id='title' value='title'
+                {{ old('searchType') == 'title' ? 'checked' : '' }}>
             <label for='title'> Title</label>
 
             <input type='radio' name='searchType' id='author' value='author'>
@@ -28,6 +29,14 @@
         </fieldset>
 
         <button type='submit' class='btn btn-primary'>Search</button>
+
+        @if (count($errors) > 0)
+            <ul class='alert alert-danger'>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        @endif
 
     </form>
 
