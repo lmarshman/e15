@@ -8,8 +8,7 @@
     <h1>Recipe Conversion Form</h1>
     <div class="container-fluid">
         <div class="p-5 mb-3 bg-light rounded col-md-11">
-            <form method='GET' action='/RecipeForm'>
-                {{ csrf_field() }}
+            <form method='GET' action='/recipe'>
                 <div class="row mb-3">
                     <label class="visually-hidden" for="autoSizingInput">Convert:</label>
                     <select name="convert1" id="convert1">
@@ -53,5 +52,9 @@
                 </div>
             </form>
         </div>
+    </div>
+
+    <div>
+        <p> {{ $conversion }} {{ $convert2 }}</p>
     </div>
 @endsection

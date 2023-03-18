@@ -6,4 +6,4 @@ use App\Http\Controllers\WelcomeController;
 
 
 Route::get('/', [WelcomeController:: class, 'welcome']);
-Route::get('/recipe', [FormController:: class, 'RecipeForm']);
+Route::get('/recipe', [FormController:: class, 'recipe']);

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class FormController extends Controller
 {
 
-    public function RecipeForm(Request $request)
+    public function recipe(Request $request)
     {
 
         // $request->validate([
@@ -27,7 +27,9 @@ class FormController extends Controller
         $double = $request->input('double', null);
         $triple = $request->input('triple', null);
 
-        $conversion = 0;
+        if ($convert1 == $convert2) {
+            $conversion = $amount;
+        }
 
         if ($convert1 == 'tsp') {
             if ($convert2 == 'tbs') {
@@ -41,7 +43,7 @@ class FormController extends Controller
 
         if ($convert1 == 'tbs') {
             if ($convert2 == 'tsp'){
-                $conversion == $amount * 3;
+                $conversion = $amount * 3;
             } elseif ($convert1 == 'oz') {
                 $conversion = $amount / 2;
             } elseif ($convert2 == 'cup') {
@@ -69,19 +71,27 @@ class FormController extends Controller
             }
         }
 
-        if ($convert1 == $convert2) {
-            $conversion = $amount;
+        if ($halve) {
+            $conversion = $conversion / 2;
+        } elseif ($double) {
+            $conversion = $conversion * 2;
+        } elseif ($triple) {
+            $conversion = $conversion * 3;
         }
 
-        dump($request->all());
+        var_dump($convert2);
+        var_dump($conversion);
 
-        return redirect('pages/RecipeForm');
+        // return redirect('pages/RecipeForm');
 
         // return redirect('pages/RecipeForm')->with([
         //     'conversion' => $conversion
         // ])->withInput();
 
         
-        // return view('pages/RecipeForm');
+        return view('pages/RecipeForm', [
+            'conversion' => $conversion,
+            'convert2' => $convert2
+        ]);
     }
 }
