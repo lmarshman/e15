@@ -37,6 +37,7 @@ class FormController extends Controller
         $convert2 = $request->input('convert2', null);
         $amount = $request->input('amount', '');
 
+        # If a radio button was chosen (halve, double, triple), obtains value.
         $convertType = $request->input('convertType', null);
 
         # If the selected measurements are the same, returns the original amount.
