@@ -13,23 +13,28 @@ class FormController extends Controller
 
     public function recipe(Request $request)
     {
-        // $request->validate([
-        //     'convert1' => 'required',
-        //     'convert2' => 'required',
-        //     'amount' => 'required|numeric',
-        //     'halve' => 'sometimes',
-        //     'double' => 'sometimes',
-        //     'triple' => 'sometimes',
-        // ]);
+        return view('pages/RecipeForm', [
+            'conversion' => session('conversion')
+        ]);
+    }
+
+    public function recipeProcess(Request $request)
+    {
+        $request->validate([
+            'convert1' => 'required',
+            'convert2' => 'required',
+            'amount' => 'required|numeric',
+            'halve' => 'sometimes',
+            'double' => 'sometimes',
+            'triple' => 'sometimes',
+        ]);
         
 
         $convert1 = $request->input('convert1', null);
         $convert2 = $request->input('convert2', null);
         $amount = $request->input('amount', '');
 
-        $halve = $request->input('halve', null);
-        $double = $request->input('double', null);
-        $triple = $request->input('triple', null);
+        $convertType = $request->input('convertType', null);
 
         if ($convert1 == $convert2) {
             $conversion = $amount;
@@ -75,23 +80,20 @@ class FormController extends Controller
             }
         }
 
-        if ($halve) {
+
+        
+        if ($convertType == 'halve') {
             $conversion = $conversion / 2;
-        } elseif ($double) {
+        } elseif ($convertType == 'double') {
             $conversion = $conversion * 2;
-        } elseif ($triple) {
+        } elseif ($convertType == 'triple') {
             $conversion = $conversion * 3;
         }
 
-        // return redirect('pages/RecipeForm')->with([
-        //     'conversion' => $conversion
-        // ])->withInput();
 
-         
-        return view('pages/RecipeForm', [
-            'conversion' => $conversion,
-            'convert2' => $convert2,
-            'convert1' => $convert1,
-        ]);
+        return redirect('/recipe')->with([
+            'conversion' => $conversion
+        ])->withInput();
+
     }
 }
