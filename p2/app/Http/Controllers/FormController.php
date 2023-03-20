@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 class FormController extends Controller
 {
 
+    public function welcome()
+    {
+        return view('pages/welcome');
+    }
+
     public function recipe(Request $request)
     {
 
@@ -18,6 +23,7 @@ class FormController extends Controller
         //     'double' => 'sometimes',
         //     'triple' => 'sometimes',
         // ]);
+        
 
         $convert1 = $request->input('convert1', null);
         $convert2 = $request->input('convert2', null);
@@ -79,19 +85,15 @@ class FormController extends Controller
             $conversion = $conversion * 3;
         }
 
-        var_dump($convert2);
-        var_dump($conversion);
-
-        // return redirect('pages/RecipeForm');
-
         // return redirect('pages/RecipeForm')->with([
         //     'conversion' => $conversion
         // ])->withInput();
 
-        
+         
         return view('pages/RecipeForm', [
             'conversion' => $conversion,
-            'convert2' => $convert2
+            'convert2' => $convert2,
+            'convert1' => $convert1,
         ]);
     }
 }
