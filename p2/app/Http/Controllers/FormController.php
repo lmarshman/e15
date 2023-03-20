@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 class FormController extends Controller
 {
-
     public function welcome()
     {
         return view('pages/welcome');
@@ -14,7 +13,6 @@ class FormController extends Controller
 
     public function recipe(Request $request)
     {
-
         // $request->validate([
         //     'convert1' => 'required',
         //     'convert2' => 'required',
@@ -48,7 +46,7 @@ class FormController extends Controller
         }
 
         if ($convert1 == 'tbs') {
-            if ($convert2 == 'tsp'){
+            if ($convert2 == 'tsp') {
                 $conversion = $amount * 3;
             } elseif ($convert1 == 'oz') {
                 $conversion = $amount / 2;
@@ -72,7 +70,7 @@ class FormController extends Controller
                 $conversion = $amount * 48;
             } elseif ($convert2 == 'tbs') {
                 $conversion = $amount * 16;
-            } elseif ($convert2 == 'oz')  {
+            } elseif ($convert2 == 'oz') {
                 $conversion = $amount * 8;
             }
         }
