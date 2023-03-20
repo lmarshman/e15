@@ -5,5 +5,6 @@
 @endsection
 
 @section('content')
-    <h1>Welcome to quick conversions. Look for more on our welcome page soon!</h1>
+    <h1>Welcome to Quick Conversions! Try out our <a class="nav-link" href="/recipe">recipe measuremnts conversion</a>tool!
+    </h1>
 @endsection

@@ -1,0 +1,32 @@
+h1 {
+    text-align: center;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 50px;
+}
+
+.recipeh1 {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+}
+
+.conversion {
+    padding-left: 80px;
+    padding-top: 20px;
+}
+
+.formSpacing {
+    padding-top: 20px;
+    padding-left: 30px;
+}
+
+.inputSpacing {
+    padding-left: 30px;
+}
+
+.amountSpacing {
+    padding-left: 30px;
+    padding-top: 20px;
+}
