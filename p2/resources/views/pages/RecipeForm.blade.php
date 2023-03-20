@@ -9,6 +9,7 @@
     <div class="container-fluid">
         <div class="p-5 mb-3 bg-light rounded col-md-11">
             <form method='GET' action='/recipe/process'>
+                <!--Input for convert1 dropdown-->
                 <div class="row mb-3">
                     <label class="col-sm-4 col-form-label inputSpacing">Convert:</label>
                     <div class="col-sm-10 inputSpacing">
@@ -21,6 +22,7 @@
                         </select>
                     </div>
                 </div>
+                <!--Input for convert2 dropdown-->
                 <div class="row-mb-3">
                     <label class="col-sm-4 col-form-label">To:</label>
                     <div class="col-sm-10">
@@ -33,6 +35,7 @@
                         </select>
                     </div>
                 </div>
+                <!--Input for Amount field-->
                 <div class="row mb-3">
                     <label class="col-sm-4 col-form-label amountSpacing">Amount:</label>
                     <div class="col-sm-10 inputSpacing">
@@ -40,6 +43,7 @@
                             value='{{ old('amount') }}'>
                     </div>
                 </div>
+                <!--Input for halve/double/triple radio buttons-->
                 <div class="row mb-3">
                     <div class="formSpacing">
                         <label class="visually-hidden" for="autoSizingSelect">I want to:</label><br>
@@ -59,8 +63,9 @@
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
 
+                <!--Displays form errors, if any-->
                 @if (count($errors) > 0)
-                    <ul class='alert alert-danger'>
+                    <ul class='alert alert-danger' style="list-style-type: none">
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
                         @endforeach
@@ -71,6 +76,8 @@
         </div>
     </div>
 
+    <!--Checks if Conversion variable is null. If yes, displays a basic statement to enter input
+                to the form. Else, displays the form conversion.-->
     @if (is_null($conversion))
         <div class='conversion'>
             <h4>Enter input to see the conversion.</h4>
@@ -80,6 +87,5 @@
             <h4>The conversion is: {{ $conversion }} {{ old('convert2') }}</h4>
         </div>
     @endif
-
 
 @endsection

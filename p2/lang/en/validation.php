@@ -163,8 +163,15 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'convert1' => [
+            'required' => 'Please select a measurement from the "Convert" dropdown menu.',
+        ],
+        'convert2' => [
+            'required' => 'Please select a measurment from the "To" dropdown menu.',
+        ],
+        'amount' => [
+            'required' => 'Please enter a number in the "Amount" field.',
+            'numeric' => 'The Amount must be a number.'
         ],
     ],
 
