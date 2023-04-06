@@ -2,6 +2,8 @@
 
 return [
 
+    'contact_email' => 'lmarshman@hbs.edu',
+
     /*
     |--------------------------------------------------------------------------
     | Default Mailer

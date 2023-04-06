@@ -5,5 +5,5 @@
 @endsection
 
 @section('content')
-    <h1>Contact us at mail.bookmark.com</h1>
+    <h1>Contact us at {{ config('mail.contact_email') }}</h1>
 @endsection
