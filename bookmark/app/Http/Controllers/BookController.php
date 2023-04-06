@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use App\Models\Book;
 
 
 class BookController extends Controller
@@ -83,20 +84,12 @@ class BookController extends Controller
 
     public function index()
     {
-       # Load book data using PHP’s file_get_contents
-        # We specify the books.json file path using Laravel’s database_path helper
-        $bookData = file_get_contents(database_path('books.json'));
+        $books = Book::orderBy('title')->get();
 
-        # Convert the string of JSON text loaded from books.json into an
-        # array using PHP’s built-in json_decode function
-        $books = json_decode($bookData, true);
-
-        # Alphabetize the books by title using Laravel’s Arr::sort
-        $books = Arr::sort($books, function ($value) {
-            return $value['title'];
-        });
+        // $newBooks = Book::orderBy('id', 'DESC')->limit(3)->get();
+        $newBooks = $books->sortByDesc('id')->take(3);
         
-        return view('books/index', ['books' => $books]);
+        return view('books/index', ['books' => $books, 'newBooks' =>$newBooks]);
     }
 
     public function show($slug)

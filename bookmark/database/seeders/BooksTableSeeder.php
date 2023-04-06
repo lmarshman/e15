@@ -1,5 +1,4 @@
 <?php
-
 namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -27,7 +26,7 @@ class BooksTableSeeder extends Seeder
 
         # Three different examples of how to add books
         //$this->addOneBook();
-        //$this->addAllBooksFromBooksDotJsonFile();
+        $this->addAllBooksFromBooksDotJsonFile();
         $this->addRandomlyGeneratedBooksUsingFaker();
     }
 
@@ -81,9 +80,9 @@ class BooksTableSeeder extends Seeder
      */
     private function addRandomlyGeneratedBooksUsingFaker()
     {
-        for ($i = 0; $i < 100; $i++) {
+        for ($i = 0; $i < 5; $i++) {
             $book = new Book();
-
+            
             $title = $this->faker->words(rand(3, 6), true);
             $book->created_at =  $this->faker->dateTimeThisMonth();
             $book->updated_at =  $book->created_at;
