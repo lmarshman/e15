@@ -8,6 +8,6 @@ class ListController extends Controller
 {
     public function show()
     {
-        return view('list/show');
+        return view('errors/500');
     }
 }

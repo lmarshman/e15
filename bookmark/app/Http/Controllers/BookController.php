@@ -26,26 +26,31 @@ class BookController extends Controller
     public function store(Request $request) 
     {
 
-        # Validate the request data
-        # The `$request->validate` method takes an array of data 
-        # where the keys are form inputs
-        # and the values are validation rules to apply to those inputs
         $request->validate([
-            'title' => 'required',
-            'author' => 'required',
+            'title' => 'required|max:225',
+            'slug' => 'required|unique:books,slug',
+            'author' => 'required|max:255',
             'published_year' => 'required|digits:4',
-            'cover_url' => 'url',
+            'cover_url' => 'required|url',
+            'info_url' => 'required|url',
             'purchase_url' => 'required|url',
-            'description' => 'required|min:255'
+            'description' => 'required|min:100'
         ]);
+
+        $book = new Book();
+        $book->title = $request->title;
+        $book->slug = $request->slug;
+        $book->author = $request->author;
+        $book->published_year = $request->published_year;
+        $book->cover_url = $request->info_url;
+        $book->info_url = $request->info_url;
+        $book->purchase_url = $request->purchase_url;
+        $book->description = $request->description;
+        $book->save();
     
-        # Note: If validation fails, it will automatically redirect the visitor back to the form page
-        # and none of the code that follows will execute.
-    
-        # Code will eventually go here to add the book to the database,
-        # but for now we'll just dump the form data to the page for proof of concept
-        dump($request->all());
-     }
+        return redirect('/books/create')->with(['flash-alert' => 'Your book was added.']);
+     
+    }
 
     /**
      * GET/search
@@ -61,8 +66,7 @@ class BookController extends Controller
 
         # If validation fails, will redirect back to form page.
 
-        $bookData = file_get_contents(database_path('books.json'));
-        $books = json_decode($bookData, true);
+        $books = Book::all();
 
         $searchTerms = $request->input('searchTerms', '');
         $searchType = $request->input('searchType', null);
@@ -94,15 +98,8 @@ class BookController extends Controller
 
     public function show($slug)
     {
-        # Load book data
-        # @TODO: This code is redundant with loading the books in the index method
-        $bookData = file_get_contents(database_path('books.json'));
-        $books = json_decode($bookData, true);
-
-        # Narrow down array of books to the single book we’re loading
-        $book = Arr::first($books, function ($value, $key) use ($slug) {
-            return $key == $slug;
-        });
+      
+       $book = Book::where('slug', '=', $slug)->first(); 
 
         return view('books/show', [
             'book' => $book
@@ -110,8 +107,76 @@ class BookController extends Controller
     }
 
     /**
-     *
-     */
+    * GET /books/{slug}/edit
+    */
+    public function edit(Request $request, $slug)
+    {
+        $book = Book::where('slug', '=', $slug)->first();
+
+        if (!$book) {
+            return redirect('/books')->with(['flash-alert' => 'Book not found.']);
+        }
+
+        return view('books/edit', [
+            'book' => $book,
+        ]);
+    }
+
+    /**
+    * PUT /books
+    */
+    public function update(Request $request, $slug)
+    {
+        $book = Book::where('slug', '=', $slug)->first();
+
+        $request->validate([
+            'title' => 'required',
+            'slug' => 'required|unique:books,slug,' . $book->id . '|alpha_dash',
+            'author_id' => 'required',
+            'published_year' => 'required|digits:4',
+            'cover_url' => 'url',
+            'info_url' => 'url',
+            'purchase_url' => 'required|url',
+            'description' => 'required|min:255'
+        ]);
+
+        $book->title = $request->title;
+        $book->slug = $request->slug;
+        $book->author_id = $request->author_id;
+        $book->published_year = $request->published_year;
+        $book->cover_url = $request->cover_url;
+        $book->info_url = $request->info_url;
+        $book->purchase_url = $request->purchase_url;
+        $book->description = $request->description;
+        $book->save();
+
+        return redirect('/books/'.$slug.'/edit')->with(['flash-alert' => 'Your changes were saved.']);
+    }
+
+    public function check(Request $request, $slug) 
+    {
+        $book = Book::where('slug', '=', $slug)->first();
+
+        if (!$book) {
+            return redirect('/books')->with(['flash-alert' => 'Book not found.']);
+        }
+
+        return view('books/check', [
+            'book' => $book,
+        ]);
+
+    }
+
+    public function delete(Request $request, $slug)
+    {
+        $book = Book::where('slug', '=', $slug)->first();
+
+        $book->delete();
+
+        return redirect('/')->with(['flash-alert' => 'Your book has been deleted.']);
+
+    }
+
     public function filter($category, $subcategory)
     {
         return 'Show all books in these categories: ' . $category . ',' . $subcategory;

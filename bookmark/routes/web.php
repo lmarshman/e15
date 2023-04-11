@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PracticeController;
+use App\Http\Controllers\ListController;
 
 Route::any('/practice/{n?}', [PracticeController::class, 'index']);
 
@@ -18,7 +19,14 @@ Route::post('/books', [BookController::class, 'store']);
 
 Route::get('/books', [BookController::class, 'index']);
 Route::get('/search', [BookController::class, 'search']);
+
 Route::get('/books/{slug}', [BookController::class, 'show']);
+Route::get('/books/{slug}/edit', [BookController::class, 'edit']);
+Route::put('/books/{slug}', [BookController::class, 'update']);
+
+Route::get('/books/{slug}/check', [BookController::class, 'check']);
+Route::post('/books/{slug}/delete', [BookController::class, 'delete']);
+
 Route::get('/books/filter/{category}/{subcategory}', [BookController::class, 'filter']);
 
-Route::get('/list', [ListController::class, 'show']);
+// Route::get('/list', [ListController::class, 'show']);

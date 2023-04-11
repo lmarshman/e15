@@ -1,3 +1,9 @@
 body {
     background-color: aliceblue;
 }
+
+.link {
+    padding: 25px 50px 25px;
+    text-align: center;
+    font-size: 40px;
+}
