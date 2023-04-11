@@ -2,38 +2,39 @@
 <html lang='en'>
 
 <head>
-    <title>@yield('title', 'Bookmark')</title>
+    <title>@yield('title', 'CityRoutes')</title>
     <meta charset='utf-8'>
-    <link href='/css/bookmark.css' type='text/css' rel='stylesheet'>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    </script>
-    </body>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href='/css/cityRoutes.css' type='text/css' rel='stylesheet'>
     @yield('head')
 </head>
 
 <body>
+    {{-- <h1 class="h1">CityRoutes</h1> --}}
 
-    <header>
-        <a href='/'><img src='/images/bookmark-logo@2x.png' id='logo' alt='Bookmark Logo'></a>
-        <nav>
-            <ul>
-                <li><a href='/'>Home</a></li>
-                <li><a href='/books'>All Books</a></li>
-                <li><a href='/list'>Your list</a></li>
-                <li><a href='/contact'>Contact</a></li>
+    <div class="navbar navbar-light navbar-collapse" style="background-color: #e3f2fd;" data-bs-theme="dark">
+        <div class="container-fluid">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">My Cities</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Discover</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Explore</a>
+                </li>
             </ul>
-        </nav>
-    </header>
+        </div>
+    </div>
 
     <section id='main'>
         @yield('content')
     </section>
-
-    <footer>
-        &copy; Bookmark, Inc.
-        {{ config('mail.contact_email') }}
-    </footer>
 
 </body>
 
