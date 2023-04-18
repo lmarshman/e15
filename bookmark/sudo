@@ -1,0 +1,46 @@
+Reading package lists...
+Building dependency tree...
+Reading state information...
+unzip is already the newest version (6.0-26ubuntu3.1).
+php8.2-mbstring is already the newest version (8.2.5-1+ubuntu22.04.1+deb.sury.org+1).
+php8.2-mbstring set to manually installed.
+php8.2-mysql is already the newest version (8.2.5-1+ubuntu22.04.1+deb.sury.org+1).
+php8.2-mysql set to manually installed.
+php8.2-xml is already the newest version (8.2.5-1+ubuntu22.04.1+deb.sury.org+1).
+php8.2-xml set to manually installed.
+The following NEW packages will be installed:
+  php8.2-curl php8.2-zip
+0 upgraded, 2 newly installed, 0 to remove and 56 not upgraded.
+Need to get 69.8 kB of archives.
+After this operation, 283 kB of additional disk space will be used.
+Do you want to continue? [Y/n] Get:1 https://ppa.launchpadcontent.net/ondrej/php/ubuntu jammy/main amd64 php8.2-curl amd64 8.2.5-1+ubuntu22.04.1+deb.sury.org+1 [40.2 kB]
+Get:2 https://ppa.launchpadcontent.net/ondrej/php/ubuntu jammy/main amd64 php8.2-zip amd64 8.2.5-1+ubuntu22.04.1+deb.sury.org+1 [29.6 kB]
+Fetched 69.8 kB in 1s (88.5 kB/s)
+Selecting previously unselected package php8.2-curl.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 102131 files and directories currently installed.)
+Preparing to unpack .../php8.2-curl_8.2.5-1+ubuntu22.04.1+deb.sury.org+1_amd64.deb ...
+Unpacking php8.2-curl (8.2.5-1+ubuntu22.04.1+deb.sury.org+1) ...
+Selecting previously unselected package php8.2-zip.
+Preparing to unpack .../php8.2-zip_8.2.5-1+ubuntu22.04.1+deb.sury.org+1_amd64.deb ...
+Unpacking php8.2-zip (8.2.5-1+ubuntu22.04.1+deb.sury.org+1) ...
+Setting up php8.2-zip (8.2.5-1+ubuntu22.04.1+deb.sury.org+1) ...
+
+Creating config file /etc/php/8.2/mods-available/zip.ini with new version
+Setting up php8.2-curl (8.2.5-1+ubuntu22.04.1+deb.sury.org+1) ...
+
+Creating config file /etc/php/8.2/mods-available/curl.ini with new version
+Processing triggers for php8.2-phpdbg (8.2.5-1+ubuntu22.04.1+deb.sury.org+1) ...
+Processing triggers for php8.2-cli (8.2.5-1+ubuntu22.04.1+deb.sury.org+1) ...
+[?1049h[22;0;0t[1;13r[4l[?25l(B[m[37m[40m[1;13r[H[2J[1;1H[97m[45m[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K[1;1H[37mPackage configuration[3;7H[30m[47m┌───────────────────────────────────────────────┤ [31mPending kernel upgrade[30m ├───────────────────────────────────────────────┐[4;7H│                                                                                                                        │[97m[40m [5;7H[30m[47m│ Newer kernel available                                                                                                  [97m[40m [6;7H[30m[47m│                                                                                                                         [97m[40m [7;7H[30m[47m│ The currently running kernel version is 5.15.0-58-generic which is not the expected kernel version 5.15.0-69-generic.   [97m[40m [8;7H[30m[47m│                                                                                                                         [97m[40m [9;7H[30m[47m│                                                         <Ok>                                                            [97m[40m [10;7H[30m[47m│                                                                                                                        │[97m[40m [11;7H[30m[47m└────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘[97m[40m [12;8H                                                                                                                          [5;9H
