@@ -23,10 +23,23 @@
         <nav>
             <ul>
                 <li><a href='/'>Home</a></li>
-                <li><a href='/books'>All Books</a></li>
-                <li><a href='/list'>Your list</a></li>
+                @if (Auth::user())
+                    <li><a href='/books'>All Books</a></li>
+                    <li><a href='/books/create'>Add a Book</a></li>
+                    <li><a href='/list'>Your list</a></li>
+                @endif
+
                 <li><a href='/contact'>Contact</a></li>
-                <li><a href='/books/create'>Add a New Book</a></li>
+
+                <li>
+                    @if (!Auth::user())
+                        <a href='/login'>Login</a>
+                    @else
+                        <form method='POST' id='logout' action='/logout'>
+                            {{ csrf_field() }}
+                            <a href='#' onClick='document.getElementById("logout").submit();'>Logout</a>
+                        </form>
+                    @endif
             </ul>
         </nav>
     </header>

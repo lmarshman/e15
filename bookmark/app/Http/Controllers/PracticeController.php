@@ -5,9 +5,26 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Book;
+use Str;
+use Illuminate\Support\Facades\Auth;
 
 class PracticeController extends Controller
 {   
+    public function practice12(Request $request)
+{
+    // # Retrieve the currently authenticated user via the Auth facade
+    // $user = Auth::user();
+    // dump($user->toArray());
+
+    // # Retrieve the currently authenticated user via request object
+    // $user = $request->user();
+    // dump($user->toArray());
+
+    # Check if the user is logged in
+    if (Auth::check()) {
+        dump('The user ID is '.Auth::id());
+    }
+}
 
     public function practice11() {
 

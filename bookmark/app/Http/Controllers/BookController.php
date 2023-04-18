@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use App\Models\Book;
+use App\Models\Author;
 
 
 class BookController extends Controller
@@ -66,19 +67,10 @@ class BookController extends Controller
 
         # If validation fails, will redirect back to form page.
 
-        $books = Book::all();
-
         $searchTerms = $request->input('searchTerms', '');
         $searchType = $request->input('searchType', null);
 
-        
-        $searchResults = [];
-
-        foreach($books as $slug => $book) {
-            if(strtolower($book[$searchType]) == strtolower($searchTerms)) {
-                $searchResults[$slug] = $book;
-            }
-        }
+        $searchResults = Book::where($searchType, 'LIKE', '%'.$searchTerms.'%')->get();
 
         return redirect('/')->with([
             'searchResults' => $searchResults
@@ -153,28 +145,28 @@ class BookController extends Controller
         return redirect('/books/'.$slug.'/edit')->with(['flash-alert' => 'Your changes were saved.']);
     }
 
-    public function check(Request $request, $slug) 
+    public function delete($slug)
     {
-        $book = Book::where('slug', '=', $slug)->first();
+        $book = Book::findBySlug($slug);
 
         if (!$book) {
-            return redirect('/books')->with(['flash-alert' => 'Book not found.']);
+            return redirect('/books')->with([
+                'flash-alert' => 'Book not found'
+            ]);
         }
 
-        return view('books/check', [
-            'book' => $book,
-        ]);
-
+        return view('books/check', ['book' => $book]);
     }
 
-    public function delete(Request $request, $slug)
+    public function destroy($slug)
     {
-        $book = Book::where('slug', '=', $slug)->first();
+        $book = Book::findBySlug($slug);
 
         $book->delete();
 
-        return redirect('/')->with(['flash-alert' => 'Your book has been deleted.']);
-
+        return redirect('/books')->with([
+            'flash-alert' => '“' . $book->title . '” was removed.'
+        ]);
     }
 
     public function filter($category, $subcategory)

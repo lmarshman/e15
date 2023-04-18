@@ -14,8 +14,11 @@
 
     <h4>Are you sure you want to delete {{ $book->title }}?</h4>
 
-    <form method='POST' action='/books/{{ $book->slug }}/delete'>
+    <form method='POST' action='/books/{{ $book->slug }}'>
+        {{ method_field('delete') }}
         {{ csrf_field() }}
         <button type='submit' class='btn btn-danger'>Delete {{ $book->title }}</button>
     </form>
+
+    <p><a href='/books/{{ $book->slug }}'>No, I changed my mind.</a></p>
 @endsection

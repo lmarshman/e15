@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model
 {
     use HasFactory;
+
+        public static function findBySlug($slug)
+        {
+            return self::where('slug', '=', $slug)->first();
+         }
 }
