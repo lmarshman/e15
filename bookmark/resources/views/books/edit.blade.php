@@ -30,9 +30,15 @@
         <input type='text' name='title' id='title' value='{{ old('title', $book->title) }}'>
         @include('includes/error-field', ['fieldName' => 'title'])
 
-        <label for='title'>* Author</label>
-        <input type='text' name='author' id='author' value='{{ old('author', $book->author) }}'>
-        @include('includes/error-field', ['fieldName' => 'author'])
+        <label for='author_id'>* Author</label>
+        <select name='author_id'>
+            <option value=''>Choose one...</option>
+            @foreach ($authors as $author)
+                <option value='{{ $author->id }}' {{ old('author_id') == $author->id ? 'selected' : '' }}>
+                    {{ $author->first_name . ' ' . $author->last_name }}</option>
+            @endforeach
+        </select>
+        @include('includes.error-field', ['fieldName' => 'author_id'])
 
         <label for='published_year'>* Published Year (YYYY)</label>
         <input type='text' name='published_year' id='published_year'

@@ -8,8 +8,8 @@ use App\Http\Controllers\ListController;
 
 Route::any('/practice/{n?}', [PracticeController::class, 'index']);
 
-Route::get('/', [PageController:: class, 'welcome']);
-Route::get('/contact', [PageController:: class, 'contact']);
+Route::get('/', [PageController::class, 'welcome']);
+Route::get('/contact', [PageController::class, 'contact']);
 
 Route::group(['middleware' => 'auth'], function () {
 
@@ -31,6 +31,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/books/{slug}/delete', [BookController::class, 'delete']);
     Route::delete('/books/{slug}', [BookController::class, 'destroy']);
+
+    Route::get('/books/addAuthor', [BookController::class, 'addAuthor']);
+    Route::post('/books/addAuthor/new', [BookController::class, 'newAuthor']);
 
     Route::get('/books/filter/{category}/{subcategory}', [BookController::class, 'filter']);
 

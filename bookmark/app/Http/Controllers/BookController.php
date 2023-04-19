@@ -7,30 +7,32 @@ use Illuminate\Support\Arr;
 use App\Models\Book;
 use App\Models\Author;
 
-
 class BookController extends Controller
 {
-
     /**
     * GET /books/create
     * Display the form to add a new book
     */
-    public function create(Request $request) 
+    public function create(Request $request)
     {
-        return view('books/create');
+        # Get data for authors in alphabetical order by last name
+        $authors = Author::orderBy('last_name')->select(['id', 'first_name', 'last_name'])->get();
+
+        return view('books.create', ['authors' => $authors]);
+
     }
 
     /**
     * POST /books
     * Process the form for adding a new book
     */
-    public function store(Request $request) 
+    public function store(Request $request)
     {
 
         $request->validate([
             'title' => 'required|max:225',
             'slug' => 'required|unique:books,slug',
-            'author' => 'required|max:255',
+            'author_id' => 'required',
             'published_year' => 'required|digits:4',
             'cover_url' => 'required|url',
             'info_url' => 'required|url',
@@ -41,16 +43,40 @@ class BookController extends Controller
         $book = new Book();
         $book->title = $request->title;
         $book->slug = $request->slug;
-        $book->author = $request->author;
+        $book->author_id = $request->author_id;
         $book->published_year = $request->published_year;
         $book->cover_url = $request->info_url;
         $book->info_url = $request->info_url;
         $book->purchase_url = $request->purchase_url;
         $book->description = $request->description;
         $book->save();
-    
+
         return redirect('/books/create')->with(['flash-alert' => 'Your book was added.']);
-     
+
+    }
+
+    public function addAuthor(Request $request)
+    {
+
+        return view('/books/addAuthor');
+
+    }
+
+    public function newAuthor(Request $request)
+    {
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'birth_year' => 'required',
+            'bio_url' => 'bio_url',
+        ]);
+
+        $author = new Author();
+        $author->first_name = $requesst->first_name;
+        $author->last_name = $request->last_name;
+        $author->birth_year = $request->birth_year;
+        $author->bio_url = $request->bio_url;
+        $author->save();
     }
 
     /**
@@ -84,14 +110,14 @@ class BookController extends Controller
 
         // $newBooks = Book::orderBy('id', 'DESC')->limit(3)->get();
         $newBooks = $books->sortByDesc('id')->take(3);
-        
+
         return view('books/index', ['books' => $books, 'newBooks' =>$newBooks]);
     }
 
     public function show($slug)
     {
-      
-       $book = Book::where('slug', '=', $slug)->first(); 
+
+        $book = Book::where('slug', '=', $slug)->first();
 
         return view('books/show', [
             'book' => $book
