@@ -10,7 +10,9 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens;
+    use HasFactory;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -41,4 +43,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function books()
+    {
+        return $this->belongsToMany('App\Models\Book')
+            ->withTimestamps() # Must be added to have Eloquent update the created_at/updated_at columns in a pibot table
+            ->withPivot('notes'); # Must also specify any other fields that should be included when fetching this relationship
+    }
 }

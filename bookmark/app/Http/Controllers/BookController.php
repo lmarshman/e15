@@ -55,10 +55,12 @@ class BookController extends Controller
 
     }
 
-    public function addAuthor(Request $request)
+    public function add(Request $request)
     {
 
-        return view('/books/addAuthor');
+        dump("loaded /add");
+
+        // return view('books.addAuthor');
 
     }
 
@@ -77,6 +79,8 @@ class BookController extends Controller
         $author->birth_year = $request->birth_year;
         $author->bio_url = $request->bio_url;
         $author->save();
+
+        return redirect('books/create')->with(['flash-alert' => 'Your author has been added.']);
     }
 
     /**
@@ -131,12 +135,11 @@ class BookController extends Controller
     {
         $book = Book::where('slug', '=', $slug)->first();
 
-        if (!$book) {
-            return redirect('/books')->with(['flash-alert' => 'Book not found.']);
-        }
+        $authors = Author::orderBy('last_name')->select(['id', 'first_name', 'last_name'])->get();
 
         return view('books/edit', [
             'book' => $book,
+            'authors' => $authors,
         ]);
     }
 
@@ -187,6 +190,8 @@ class BookController extends Controller
     public function destroy($slug)
     {
         $book = Book::findBySlug($slug);
+
+        $book->users()->detach();
 
         $book->delete();
 

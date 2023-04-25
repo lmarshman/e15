@@ -9,6 +9,7 @@
 @endsection
 
 @section('content')
+    <h2>Add a new author</h2>
     <form method='POST' action='/newAuthor'>
         <div class='details'>* Required fields</div>
 

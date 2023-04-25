@@ -1,7 +1,7 @@
 @extends('layouts/main')
 
 @section('head')
-    <link href='/css/books/show.css' rel='stylesheet'>
+    <link href='/css/bookmark.css' rel='stylesheet'>
 @endsection
 
 @section('content')
@@ -25,7 +25,7 @@
             <input type='checkbox' name='remember' {{ old('remember') ? 'checked' : '' }}> Remember Me
         </label>
 
-        <button type='submit' class='btn btn-primary'>Login</button>
+        <button type='submit' test='login-button' class='btn btn-primary'>Login</button>
 
         </a>
 
