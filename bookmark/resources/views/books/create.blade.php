@@ -53,7 +53,7 @@
         <label for='description'>Description</label>
         <textarea name='description'>{{ old('description') }}</textarea>
 
-        <button type='submit' class='btn btn-primary'>Add Book</button>
+        <button type='submit' test='create-book-link' class='btn btn-primary'>Add Book</button>
 
         @if (count($errors) > 0)
             <ul class='alert alert-danger'>

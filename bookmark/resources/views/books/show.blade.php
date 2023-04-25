@@ -10,7 +10,7 @@
     @else
         <img class='cover' src='{{ $book->cover_url }}' alt='Cover photo for {{ $book->title }}'>
 
-        <h1>{{ $book->title }}</h1>
+        <h1 id='title'>{{ $book->title }}</h1>
 
         <a href='{{ $book->purchase_url }}'>Purchase...</a>
 
