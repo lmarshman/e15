@@ -7,3 +7,9 @@ body {
     text-align: center;
     font-size: 40px;
 }
+
+.bookActions {
+    font-size: 15px;
+    list-style: none;
+    padding-top: 10px;
+}

@@ -31,6 +31,21 @@ class ListController extends Controller
         return redirect('/list')->with(['flash-alert' => 'The book '.$book->title. 'was added to your list']);
     }
 
+    public function update(Request $request, $slug)
+    {
+        $book = Book::findBySlug($slug);
+        $user = $request->user();
+
+        $book = $user->books()->where('books.id', $book->id)->first();
+
+        $book->pivot->notes = $request->notes;
+        $book->pivot->save();
+
+        return redirect('/list')->with([
+            'flash-alert' => 'Your note for ' .$book->title. ' was updated.'
+        ]);
+    }
+
     public function delete($slug)
     {
         $book = Book::findBySlug($slug);
@@ -44,7 +59,7 @@ class ListController extends Controller
         return view('/list/removeBook', ['book' => $book]);
     }
 
-    public function destroy($slug)
+    public function destroy(Request $request, $slug)
     {
         $user = $request->user();
         $book = Book::findBySlug($slug);

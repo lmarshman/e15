@@ -34,7 +34,7 @@
                     {{ $author->first_name . ' ' . $author->last_name }}</option>
             @endforeach
         </select>
-        <p><a href='/books/addAuthor'>Don't see the author? Add them here!</a></p>
+        <p><a href='/books/addAuthor/new'>Don't see the author? Add them here!</a></p>
         @include('includes.error-field', ['fieldName' => 'author_id'])
 
 

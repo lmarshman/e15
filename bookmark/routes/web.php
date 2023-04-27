@@ -41,14 +41,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/books/{slug}/delete', [BookController::class, 'delete']);
     Route::delete('/books/{slug}', [BookController::class, 'destroy']);
 
-    Route::get('/books/addAuthor', [BookController::class, 'add']);
-    Route::post('/books/addAuthor/new', [BookController::class, 'newAuthor']);
+    Route::get('/books/addAuthor/new', [BookController::class, 'add']);
+    Route::post('/books/addAuthor', [BookController::class, 'newAuthor']);
 
     Route::get('/books/filter/{category}/{subcategory}', [BookController::class, 'filter']);
 
     Route::get('/list', [ListController::class, 'show']);
     Route::get('/list/{slug}/add', [ListController::class, 'add']);
     Route::post('/list/{slug}/save', [ListController::class, 'save']);
+    Route::put('/list/{slug}/update', [ListController::class, 'update']);
 
     Route::get('/list/{slug}/delete', [ListController::class, 'delete']);
     Route::delete('/list/{slug}', [ListController::class, 'destroy']);

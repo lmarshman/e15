@@ -27,10 +27,12 @@
                 {{-- In the following code, observe how `$book->pivot` is used to access 
             details (`created_at` and `notes`) from the book to user relationship --}}
 
-                <form method='POST' action='#'>
-                    <textarea class='notes'>{{ $book->pivot->notes }}</textarea>
-                    <input type='submit' class='btn btn-primary' value='Update notes'>
-                    {{-- TODO: Finish the update note feature --}}
+                <form method='POST' action='/list/{{ $book->slug }}/update'>
+                    {{ csrf_field() }}
+                    {{ method_field('put') }}
+                    <textarea class='notes' name='notes' test='{{ $book->slug }}-notes-textarea'>{{ $book->pivot->notes }}</textarea>
+                    <button type='submit' class='btn btn-primary' test='{{ $book->slug }}-update-button'>Update
+                        notes</button>
                 </form>
 
                 <p class='added'>

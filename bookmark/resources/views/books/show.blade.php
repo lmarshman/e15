@@ -20,7 +20,11 @@
         </p>
 
         <ul class='bookActions'>
-            <li><a href='/list/{{ $book->slug }}/add'>Add this book to your list</a></li>
+            @if ($onList)
+                <li><a href='/list/{{ $book->slug }}/delete'>Delete this book to your list</a></li>
+            @else
+                <li><a href='/list/{{ $book->slug }}/add'>Add this book to your list</a></li>
+            @endif
             <li><a href='/books/{{ $book->slug }}/edit'>Edit this book</a></li>
             <li><a href='/books/{{ $book->slug }}/delete'>Delete Book</a></li>
         </ul>

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use App\Models\Book;
 use App\Models\Author;
+use App\Models\User;
+use App\Actions\Book\StoreNewBook;
 
 class BookController extends Controller
 {
@@ -40,28 +42,15 @@ class BookController extends Controller
             'description' => 'required|min:100'
         ]);
 
-        $book = new Book();
-        $book->title = $request->title;
-        $book->slug = $request->slug;
-        $book->author_id = $request->author_id;
-        $book->published_year = $request->published_year;
-        $book->cover_url = $request->info_url;
-        $book->info_url = $request->info_url;
-        $book->purchase_url = $request->purchase_url;
-        $book->description = $request->description;
-        $book->save();
+        $action = new StoreNewBook((object) $request->all());
 
-        return redirect('/books/create')->with(['flash-alert' => 'Your book was added.']);
+        return redirect('/books/create')->with(['flash-alert' => 'The book '.$action->results->title.' was added.']);
 
     }
 
     public function add(Request $request)
     {
-
-        dump("loaded /add");
-
-        // return view('books.addAuthor');
-
+        return view('books.addAuthor');
     }
 
     public function newAuthor(Request $request)
@@ -118,13 +107,19 @@ class BookController extends Controller
         return view('books/index', ['books' => $books, 'newBooks' =>$newBooks]);
     }
 
-    public function show($slug)
+    public function show(Request $request, $slug)
     {
-
+        $user = $request->user();
         $book = Book::where('slug', '=', $slug)->first();
 
+        $lists = $user->books();
+
+        $onList = $book->users()->where('user_id', $request->user()->id)->count() >= 1;
+
         return view('books/show', [
-            'book' => $book
+            'book' => $book,
+            'onList' => $onList,
+
         ]);
     }
 
@@ -161,15 +156,7 @@ class BookController extends Controller
             'description' => 'required|min:255'
         ]);
 
-        $book->title = $request->title;
-        $book->slug = $request->slug;
-        $book->author_id = $request->author_id;
-        $book->published_year = $request->published_year;
-        $book->cover_url = $request->cover_url;
-        $book->info_url = $request->info_url;
-        $book->purchase_url = $request->purchase_url;
-        $book->description = $request->description;
-        $book->save();
+        $action = new StoreNewBook((object) $request->all());
 
         return redirect('/books/'.$slug.'/edit')->with(['flash-alert' => 'Your changes were saved.']);
     }
