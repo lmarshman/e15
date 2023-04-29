@@ -45,6 +45,8 @@ return [
             'password' => env('MAIL_PASSWORD'),
             'timeout' => null,
             'local_domain' => env('MAIL_EHLO_DOMAIN'),
+            'auth_mode'  => null,
+            'verify_peer' => false,
         ],
 
         'ses' => [
@@ -53,10 +55,12 @@ return [
 
         'mailgun' => [
             'transport' => 'mailgun',
+            'domain' => env('MAILGUN_DOMAIN'),
+            'secret' => env('MAILGUN_SECRET'),
         ],
 
         'postmark' => [
-            'transport' => 'postmark',
+            'token' => env('POSTMARK_TOKEN'),
         ],
 
         'sendmail' => [
@@ -94,8 +98,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'bookmark.com'),
+        'name' => env('MAIL_FROM_NAME', 'Laura Marshman'),
     ],
 
     /*

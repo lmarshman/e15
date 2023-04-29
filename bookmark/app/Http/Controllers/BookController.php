@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Mail;
 use App\Models\Book;
 use App\Models\Author;
 use App\Models\User;
 use App\Actions\Book\StoreNewBook;
+use App\Mail\BookAdded;
 
 class BookController extends Controller
 {
@@ -43,6 +46,10 @@ class BookController extends Controller
         ]);
 
         $action = new StoreNewBook((object) $request->all());
+
+        $book = Book::where('slug', '=', $request->slug)->first();
+
+        Mail::to($request->user())->send(new BookAdded($book));
 
         return redirect('/books/create')->with(['flash-alert' => 'The book '.$action->results->title.' was added.']);
 
