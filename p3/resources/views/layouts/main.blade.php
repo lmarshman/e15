@@ -20,7 +20,7 @@
                     <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">My Cities</a>
+                    <a class="nav-link" href="/pages/list">My Cities</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="">Discover</a>
@@ -28,6 +28,17 @@
                 <li class="nav-item">
                     <a class="nav-link" href="">Explore</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/routes/address/convert">Address Form</a>
+                </li>
+                @if (!Auth::user())
+                    <a href='/login'>Login</a>
+                @else
+                    <form method='POST' id='logout' action='/logout'>
+                        {{ csrf_field() }}
+                        <a href='#' onClick='document.getElementById("logout").submit();'>Logout</a>
+                    </form>
+                @endif
             </ul>
         </div>
     </div>
