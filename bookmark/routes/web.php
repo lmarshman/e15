@@ -46,6 +46,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/books/filter/{category}/{subcategory}', [BookController::class, 'filter']);
 
+
     Route::get('/list', [ListController::class, 'show']);
     Route::get('/list/{slug}/add', [ListController::class, 'add']);
     Route::post('/list/{slug}/save', [ListController::class, 'save']);

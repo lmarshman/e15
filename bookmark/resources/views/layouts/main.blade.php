@@ -27,6 +27,7 @@
                     <li><a href='/books'>All Books</a></li>
                     <li><a href='/books/create'>Add a Book</a></li>
                     <li><a href='/list'>Your list</a></li>
+                    <li><a href='/routes/RoutesForm'>Routes Form</a></li>
                 @endif
 
                 <li><a href='/contact'>Contact</a></li>
