@@ -19,18 +19,20 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/pages/list">My Cities</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">Discover</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">Explore</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/routes/address/convert">Address Form</a>
-                </li>
+                @if (Auth::user())
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pages/list">My Locations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pages/discover/cities">Discover</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pages/addLocation/new">Add a new Location</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/routes/address/convert">Make a Route</a>
+                    </li>
+                @endif
                 @if (!Auth::user())
                     <a href='/login'>Login</a>
                 @else

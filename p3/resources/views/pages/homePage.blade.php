@@ -19,8 +19,11 @@
                     the best route to visit
                     them all!
                 </p>
-                <p class="lead mb-0"><a href="" class="text-white fw-bold">Sign In to start making your own lists</a>
-                </p>
+                @if (!Auth::user())
+                    <p class="lead mb-0"><a href="" class="text-white fw-bold">Sign In to start making your own
+                            lists</a>
+                    </p>
+                @endif
             </div>
         </div>
         <br>
@@ -29,21 +32,21 @@
                 <div class="card-body">
                     <h4 class="card-title">My Cities</h4>
                     <p class="card-text">View your cities</p>
-                    <a href="/discover" class="btn btn-primary">View your lists</a>
+                    <a href="" class="btn btn-primary">View your lists</a>
                 </div>
             </div>
             <div class="card cardSpacing" style="width:350px">
                 <div class="card-body">
                     <h4 class="card-title">Discover</h4>
-                    <p class="card-text">Find new places!</p>
-                    <a href="/developers" class="btn btn-primary">Browse Cities</a>
+                    <p class="card-text">Add new places to your existing lists</p>
+                    <a href="" class="btn btn-primary">Browse Cities</a>
                 </div>
             </div>
             <div class="card cardSpacing" style="width:350px">
                 <div class="card-body">
                     <h4 class="card-title">Explore</h4>
-                    <p class="card-text">Add new places to your existing lists</p>
-                    <a href="/searchgame" class="btn btn-primary">Add new things to your existing lists</a>
+                    <p class="card-text">Make a Route!</p>
+                    <a href="" class="btn btn-primary">Go to your places!</a>
                 </div>
             </div>
         </div>

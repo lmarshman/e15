@@ -7,10 +7,13 @@ use Illuminate\Support\Facades\Schema;
 return new class () extends Migration {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
-    public function up(): void
+
+    public function up()
     {
-        Schema::create('location', function (Blueprint $table) {
+        Schema::create('locations', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
 
@@ -18,7 +21,12 @@ return new class () extends Migration {
             $table->string('address');
             $table->string('city');
             $table->string('state');
-            $table->string('picture_URL')->nullable();
+            $table->string('country');
+            $table->bigInteger('lat')->nullable();
+            $table->bigInteger('long')->nullable();
+            $table->string('picture_url')->nullable();
+            $table->string('loc_url')->nullable();
+            $table->text('description')->nullable();
             $table->text('notes')->nullable();
         });
     }
@@ -28,6 +36,6 @@ return new class () extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('location');
+        Schema::dropIfExists('locations');
     }
 };
