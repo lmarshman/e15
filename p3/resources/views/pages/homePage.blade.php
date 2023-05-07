@@ -32,21 +32,21 @@
                 <div class="card-body">
                     <h4 class="card-title">My Cities</h4>
                     <p class="card-text">View your cities</p>
-                    <a href="" class="btn btn-primary">View your lists</a>
+                    <a href="/pages/list" class="btn btn-primary">View your lists</a>
                 </div>
             </div>
             <div class="card cardSpacing" style="width:350px">
                 <div class="card-body">
                     <h4 class="card-title">Discover</h4>
                     <p class="card-text">Add new places to your existing lists</p>
-                    <a href="" class="btn btn-primary">Browse Cities</a>
+                    <a href="/pages/discover/cities" class="btn btn-primary">Find new things to see!</a>
                 </div>
             </div>
             <div class="card cardSpacing" style="width:350px">
                 <div class="card-body">
                     <h4 class="card-title">Explore</h4>
                     <p class="card-text">Make a Route!</p>
-                    <a href="" class="btn btn-primary">Go to your places!</a>
+                    <a href="/routes/address/convert" class="btn btn-primary">Go to your places!</a>
                 </div>
             </div>
         </div>

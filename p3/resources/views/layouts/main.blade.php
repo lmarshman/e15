@@ -11,8 +11,13 @@
 </head>
 
 <body>
-    {{-- <h1 class="h1">CityRoutes</h1> --}}
-
+    <div>
+        @if (session('flash-alert'))
+            <div class='flash-alert'>
+                {{ session('flash-alert') }}
+            </div>
+        @endif
+    </div>
     <div class="navbar navbar-light navbar-collapse" style="background-color: #e3f2fd;" data-bs-theme="dark">
         <div class="container-fluid">
             <ul class="nav">
@@ -34,12 +39,17 @@
                     </li>
                 @endif
                 @if (!Auth::user())
-                    <a href='/login'>Login</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href='/login'>Login</a>
+                    </li>
                 @else
-                    <form method='POST' id='logout' action='/logout'>
-                        {{ csrf_field() }}
-                        <a href='#' onClick='document.getElementById("logout").submit();'>Logout</a>
-                    </form>
+                    <li class="nav-item">
+                        <form method='POST' id='logout' action='/logout'>
+                            {{ csrf_field() }}
+                            <a class="nav-link" href='#'
+                                onClick='document.getElementById("logout").submit();'>Logout</a>
+                        </form>
+                    </li>
                 @endif
             </ul>
         </div>

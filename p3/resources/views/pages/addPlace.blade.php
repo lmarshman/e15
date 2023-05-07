@@ -42,12 +42,11 @@
             <div class="mb-3">
                 <label class="form-label" for='picture_url'>Location Picture URL</label>
                 <input type='text' class="form-control" name='picture_url' id='picture_url'
-                    value='{{ old('picture_url', 'http://') }}'>
+                    value='{{ old('picture_url') }}'>
             </div>
             <div class="mb-3">
                 <label class="form-label" for='loc_url'>Location Website </label>
-                <input type='text' class="form-control" name='loc_url' id='loc_url'
-                    value='{{ old('loc_url', 'http://') }}'>
+                <input type='text' class="form-control" name='loc_url' id='loc_url' value='{{ old('loc_url') }}'>
             </div>
             <div class="mb-3">
                 <label class="form-label" for='description'>Description</label>
