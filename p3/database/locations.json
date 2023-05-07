@@ -1,0 +1,112 @@
+{
+    "Old North Church": {
+        "address": "193 Salem St",
+        "city": "Boston",
+        "state": "MA",
+        "country": "United States",
+        "lat": "42.3663",
+        "long": "-71.0544",
+        "picture_url": "https://www.nps.gov/bost/learn/historyculture/images/ONC-interior-Web.jpg?maxwidth=1300&maxheight=1300&autorotate=false",
+        "loc_url": "https://www.oldnorth.com/",
+        "description": "Established in 1723 as Christ Church in the City of Boston, Old North Church is both a national historic landmark operated by Old North Illuminated and an active Episcopal Church congregation. Old North is the oldest church building and the longest-serving Episcopal congregation in the city."
+    },
+    "Boston Common": {
+        "address": "139 Tremont St",
+        "city": "Boston",
+        "state": "MA",
+        "country": "United States",
+        "lat": "42.3551",
+        "long": "-71.0657",
+        "picture_url": "https://upload.wikimedia.org/wikipedia/commons/6/69/Aerial_View_Parkman_Bandstand_at_Boston_Common_2.jpg",
+        "loc_url": "https://www.boston.gov/parks/boston-common",
+        "description": "The Boston Common (also known as the Common) is a public park in downtown Boston, Massachusetts. It is the oldest city park in the United States.[4] Boston Common consists of 50 acres (20 ha) of land bounded by Tremont Street (139 Tremont St.), Park Street, Beacon Street, Charles Street, and Boylston Street. The Common is part of the Emerald Necklace of parks and parkways that extend from the Common south to Franklin Park in Jamaica Plain, Roxbury, and Dorchester. The visitors' center for the city of Boston is located on the Tremont Street side of the park."
+    },
+    "Boston Public Garden": {
+        "address": "4 Charles Street",
+        "city": "Boston",
+        "state": "MA",
+        "country": "United States",
+        "lat": "42.3541",
+        "long": "-71.0701",
+        "picture_url": "https://www.nps.gov/common/uploads/cropped_image/primary/E6DC0EFD-9EEB-3E64-7699CFDCDF4A35DD.jpg?width=1600&quality=90&mode=crop",
+        "loc_url": "https://www.boston.gov/parks/public-garden",
+        "description": "The Public Garden, also known as Boston Public Garden, is a large park in the heart of Boston, Massachusetts, adjacent to Boston Common. It is a part of the Emerald Necklace system of parks, and is bounded by Charles Street and Boston Common to the east, Beacon Street and Beacon Hill to the north, Arlington Street and Back Bay to the west, and Boylston Street to the south. The Public Garden was the first public botanical garden in America."
+    },
+    "Faneuil Hall Marketplace": {
+        "address": "4 S Market St",
+        "city": "Boston",
+        "state": "MA",
+        "country": "United States",
+        "lat": "42.3602",
+        "long": "-71.0551",
+        "picture_url": "https://bdc2020.o0bc.com/wp-content/uploads/2014/04/a71fbaed40fe4a6eb574a0f0b824924b-a71fbaed40fe4a6eb574a0f0b824924b-0.jpg",
+        "loc_url": "https://faneuilhallmarketplace.com/",
+        "description": "Faneuil Hall is a marketplace and meeting hall located near the waterfront and today's Government Center, in Boston, Massachusetts. Opened in 1742,[2] it was the site of several speeches by Samuel Adams, James Otis, and others encouraging independence from Great Britain. It is now part of Boston National Historical Park and a well-known stop on the Freedom Trail. It is sometimes referred to as the Cradle of Liberty,[3] though the building and location have ties to slavery.[4]"
+    },
+    "Bunker Hill Monument": {
+        "address": "43 Monument Sq.",
+        "city": "Boston",
+        "state": "MA",
+        "country": "United States",
+        "lat": "42.3764",
+        "long": "-71.0608",
+        "picture_url": "https://interactive.wttw.com/sites/default/files/Monuments_1_wide-shot_Hennessey.jpg",
+        "loc_url": "https://www.nps.gov/bost/learn/historyculture/bhm.htm",
+        "description": "The Bunker Hill Monument is a monument erected at the site of the Battle of Bunker Hill in Boston, Massachusetts, which was among the first major battles between the Red Coats and Patriots in the American Revolutionary War. The 221-foot (67 m) granite obelisk was erected between 1825 and 1843 in Charlestown, Massachusetts, with granite from nearby Quincy conveyed to the site via the purpose-built Granite Railway, followed by a trip by barge. There are 294 steps to the top."
+    },
+    "Old State House Boston": {
+        "address": "206 Washington St",
+        "city": "Boston",
+        "state": "MA",
+        "country": "United States",
+        "lat": "42.3587",
+        "long": "-42.3587",
+        "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Old_State_House_%28cropped%29.jpg/1200px-Old_State_House_%28cropped%29.jpg",
+        "loc_url": "https://www.nps.gov/bost/learn/historyculture/osh.htm",
+        "description": "The Old State House is a historic building in Boston, Massachusetts built in 1713. It was the seat of the Massachusetts General Court until 1798. It is located at the intersection of Washington and State Streets and is one of the oldest public buildings in the United States.[3] It is one of the landmarks on Boston's Freedom Trail and is the oldest surviving public building in Boston. It now serves as a history museum that was operated by the Bostonian Society through 2019. On January 1, 2020, the Bostonian Society merged with the Old South Association in Boston to form Revolutionary Spaces.[4] The Old State House was designated a National Historic Landmark in 1960 and a Boston Landmark by the Boston Landmarks Commission in 1994."
+    },
+    "Museum of Fine Arts Boston": {
+        "address": "465 Huntington Ave",
+        "city": "Boston",
+        "state": "MA",
+        "country": "United States",
+        "lat": "42.3394",
+        "long": "-71.0940",
+        "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Boston_Museum_of_Fine_Artes.jpg/1200px-Boston_Museum_of_Fine_Artes.jpg",
+        "loc_url": "https://www.mfa.org/",
+        "description": "The Museum of Fine Arts (often abbreviated as MFA Boston or MFA) is an art museum in Boston, Massachusetts. It is the 20th-largest art museum in the world, measured by public gallery area. It contains 8,161 paintings and more than 450,000 works of art, making it one of the most comprehensive collections in the Americas. With more than 1.2 million visitors a year,[2] it is the 52nd most visited art museum in the world as of 2019. Founded in 1870 in Copley Square, the museum moved to its current Fenway location in 1909. It is affiliated with the School of the Museum of Fine Arts at Tufts."
+    },
+    "Boston Symphony Hall": {
+        "address": "301 Massachusetts Ave",
+        "city": "Boston",
+        "state": "MA",
+        "country": "United States",
+        "lat": "42.3428",
+        "long": "-71.0857",
+        "picture_url": "https://dgpuo8cwvztoe.cloudfront.net/uploads/Venues/Symphony-Hall/Interior-images/_s_lg/Symphony-hall-2017-concert.jpg",
+        "loc_url": "https://www.bso.org/",
+        "description": "Symphony Hall is a concert hall located at 301 Massachusetts Avenue in Boston, Massachusetts, opened in 1900. Designed by the architectural firm McKim, Mead and White, it was built for the Boston Symphony Orchestra, which continues to make the hall its home. It can accommodate an audience of 2,625."
+    },
+    "The Wilbur Boston": {
+        "address": "246 Tremont Street",
+        "city": "Boston",
+        "state": "MA",
+        "country": "United States",
+        "lat": "42.350",
+        "long": "-71.0649",
+        "picture_url": "https://media.timeout.com/images/101566631/750/422/image.jpg",
+        "loc_url": "https://thewilbur.com/",
+        "description": "The Wilbur Theatre is a historic performing arts theater at 246 Tremont Street in Boston, Massachusetts. The Wilbur Theatre originally opened in 1914, but underwent renovations in 2008. The Wilbur Theatre sits in the heart of Boston's historic theater district and is known for hosting live comedy and music. The venue seats 1,093 but the main floor (orchestra level) has removable tables and seating, to create a general admission standing room (bringing capacity to 1,200). It features basic concessions, including a full bar, on each of the three floors"
+    },
+    "Fenway Park": {
+        "address": "4 jersey street",
+        "city": "Boston",
+        "state": "MA",
+        "country": "United States",
+        "lat": "42.3467",
+        "long": "-71.0972",
+        "picture_url": "https://assets1.cbsnewsstatic.com/hub/i/r/2022/12/06/7be9f284-dde2-428a-a583-f011e48895ba/thumbnail/1200x630g2/87c52073687b9be957cd9b88d5b80354/fenway-park.jpg",
+        "loc_url": "https://www.mlb.com/redsox/ballpark",
+        "description": "Fenway Park is a baseball stadium located in Boston, Massachusetts, near Kenmore Square. Since 1912, it has been the home of the Boston Red Sox, the city's American League baseball team, and, since 1953, its only Major League Baseball (MLB) franchise. While the stadium was built in 1912, it was substantially rebuilt in 1934, and underwent major renovations and modifications in the 21st century. It is the oldest active ballpark in MLB. Because of its age and constrained location in Boston's dense Fenway Kenmore neighborhood, the park has many quirky features, including The Triangle, Pesky's Pole, and the Green Monster in left field. It is the fifth-smallest among MLB ballparks by seating capacity, second-smallest by total capacity, and one of eight that cannot accommodate at least 40,000 spectators."
+    }
+}

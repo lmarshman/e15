@@ -86,7 +86,6 @@ class RoutesController extends Controller
         } else {
             return $results = $response['features'];
         }
-
     }
 
     public function discoverCities(Request $request)
@@ -100,13 +99,28 @@ class RoutesController extends Controller
         $cityLatLong = self::cityLatLong($city);
         $arr = json_decode($cityLatLong);
 
-        if ($arr == null) {
+        $locations = Location::where('city', 'LIKE', $city)->get();
+
+        if ($arr == null and $locations == false) {
 
             $places = 'null';
+            $locations = 'false';
 
             return view('/pages/results')->with([
                 'places' => $places,
                 'city' => $city,
+                'locations' => $locations
+            ]);
+
+        } elseif ($arr == null) {
+
+            $places = 'null';
+            $locations = 'false';
+
+            return view('/pages/results')->with([
+                'places' => $places,
+                'city' => $city,
+                'locations' => $locations
             ]);
 
         } else {
@@ -116,26 +130,13 @@ class RoutesController extends Controller
             $arr2 = self::cityPlaces($cityLat, $cityLong);
             $places = $arr2;
 
-
             return view('/pages/results')->with([
                 'places' => $places,
+                'locations' => $locations,
                 'city' => $city
             ]);
 
         }
-
-        // $cityLat = $arr->lat;
-        // $cityLong = $arr->lon;
-
-        // $arr2 = self::cityPlaces($cityLat, $cityLong);
-        // $places = $arr2;
-
-
-        // return view('/pages/results')->with([
-        //     'places' => $places,
-        //     'city' => $city
-        // ]);
-
     }
 
     public function addressConvert(Request $request)
@@ -233,12 +234,12 @@ class RoutesController extends Controller
 
     }
 
-    public function add(Request $request)
+    public function create(Request $request)
     {
         return view('pages/addPlace');
     }
 
-    public function addLocation(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
             'name' => 'required|max:225',
@@ -278,18 +279,13 @@ class RoutesController extends Controller
         $location->description = $request->description;
         $location->save();
 
-        return redirect('/pages/addLocation/new')->with(['flash-alert' => 'The location, '.$location->name.' was added.']);
+        return redirect('/pages/addLocation/new')->with(['flash-alert' => 'The location '.$location->name.' was added.']);
 
     }
 
     public function makeRoute()
     {
 
-    }
-
-    public function test(Request $request)
-    {
-        return view('/pages/test');
     }
 
 
