@@ -22,12 +22,11 @@ return new class () extends Migration {
             $table->string('city');
             $table->string('state');
             $table->string('country');
-            $table->bigInteger('lat')->nullable();
-            $table->bigInteger('long')->nullable();
+            $table->string('lat')->nullable();
+            $table->string('long')->nullable();
             $table->string('picture_url')->nullable();
             $table->string('loc_url')->nullable();
             $table->text('description')->nullable();
-            $table->text('notes')->nullable();
         });
     }
 
