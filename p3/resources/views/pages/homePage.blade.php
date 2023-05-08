@@ -32,7 +32,7 @@
                 <div class="card-body">
                     <h4 class="card-title">My Cities</h4>
                     <p class="card-text">View your cities</p>
-                    <a href="/pages/list" class="btn btn-primary">View your lists</a>
+                    <a href="/list" class="btn btn-primary">View your lists</a>
                 </div>
             </div>
             <div class="card cardSpacing" style="width:350px">

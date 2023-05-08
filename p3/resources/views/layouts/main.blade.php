@@ -11,13 +11,12 @@
 </head>
 
 <body>
-    <div>
-        @if (session('flash-alert'))
-            <div class='flash-alert'>
-                {{ session('flash-alert') }}
-            </div>
-        @endif
-    </div>
+    @if (session('flash-alert'))
+        <div class="alert alert-success">
+            {{ session('flash-alert') }}
+        </div>
+    @endif
+
     <div class="navbar navbar-light navbar-collapse" style="background-color: #e3f2fd;" data-bs-theme="dark">
         <div class="container-fluid">
             <ul class="nav">
@@ -26,7 +25,7 @@
                 </li>
                 @if (Auth::user())
                     <li class="nav-item">
-                        <a class="nav-link" href="/pages/list">My Locations</a>
+                        <a class="nav-link" href="/list">My Locations</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/pages/discover/cities">Discover</a>

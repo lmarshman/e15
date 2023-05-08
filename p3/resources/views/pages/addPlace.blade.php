@@ -15,7 +15,7 @@
     <h3 class='addressHeader'>Add a new location</h3>
 
     <div class='addressForm'>
-        <form method='POST' action='/pages/addLocation'>
+        <form method='POST' action='pages/list/{name}/save'>
 
             {{ csrf_field() }}
 

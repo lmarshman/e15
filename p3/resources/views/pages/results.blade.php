@@ -33,8 +33,7 @@
                             <li>{{ $location->description }}</li>
                         </ul>
                         <div class='d-grid gap-2 d-md-flex justify-content-md-end'>
-                            <button type='button' class="btn btn-primary me-md-2"><a href=''></a>Add
-                                this location to your List</button>
+                            <a href='/list/{{ $location->name }}/add'>Add to list</a>
                         </div>
                     </div>
                     <ul>
@@ -48,8 +47,8 @@
 
     @if ($places == 'null')
         <div class='discover'>
-            <h5>We didn't find any results for {{ $city }}. Please try a differnt <a class="nav-link"
-                    href="/pages/discover/cities">search</a> or add a <a class="nav-link" href="/pages/addLocation/new">new
+            <h5>We didn't find any results for {{ $city }}. Please try a differnt <a
+                    href="/pages/discover/cities">search</a> or add a <a href="/pages/addLocation/new">new
                     location</h5>
         </div>
     @else
@@ -64,7 +63,8 @@
                             </h4>
                         </div>
                         <div class='d-grid gap-2 d-md-flex justify-content-md-end'>
-                            <button type='button' class="btn btn-primary me-md-2"><a href=''></a>Add
+                            <button type='button' class="btn btn-primary me-md-2"><a
+                                    href='/list/{{ $place['properties']['name'] }}/new'></a>Add
                                 this location to your List</button>
                         </div>
                         <ul>
