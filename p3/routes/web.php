@@ -8,9 +8,6 @@ use App\Http\Controllers\ListController;
 Route::get('/', [RoutesController::class, 'homePage']);
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/routes/address/convert', [RoutesController::class, 'addressConvert']);
-    Route::get('/routes/address', [RoutesController::class, 'address']);
-
 
     // Route to form for user to manually enter a new location
     Route::get('/pages/addLocation/new', [RoutesController::class, 'create']);
@@ -22,6 +19,8 @@ Route::group(['middleware' => 'auth'], function () {
     // Route to generate list of tourist locations for the city.
     Route::get('/pages/discover', [RoutesController::class, 'discoverCities']);
 
+    Route::get('pages/{name}/reviews', [RoutesController::class, 'showReviews']);
+
 
     // Route to show the user's saved locations
     Route::get('/list', [ListController::class, 'showList']);
@@ -31,6 +30,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/list/{name}/save', [ListController::class, 'save']);
     // Route for updated user notes for their saved locations
     Route::put('/list/{name}/update', [ListController::class, 'update']);
+
+    Route::get('/list/{name}/delete', [ListController::class, 'checkDelete']);
     // Route to delete location from user list
     Route::delete('/list/{name}/destroy', [ListController::class, 'destroy']);
 

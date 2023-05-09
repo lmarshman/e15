@@ -46,7 +46,7 @@
                 <div class="card-body">
                     <h4 class="card-title">Explore</h4>
                     <p class="card-text">Make a Route!</p>
-                    <a href="/routes/address/convert" class="btn btn-primary">Go to your places!</a>
+                    <a href="/pages/addLocation/new" class="btn btn-primary">Add a new place!</a>
                 </div>
             </div>
         </div>

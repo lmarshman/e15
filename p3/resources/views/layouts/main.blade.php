@@ -33,9 +33,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/pages/addLocation/new">Add a new Location</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/routes/address/convert">Make a Route</a>
-                    </li>
                 @endif
                 @if (!Auth::user())
                     <li class="nav-item">

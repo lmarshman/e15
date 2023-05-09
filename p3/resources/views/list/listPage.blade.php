@@ -25,28 +25,33 @@
             <div class='discover'>
                 <div class='row'>
                     <div class='col-md-4'>
-                        <img src="{{ $location->picture_url }}" alt="{{ $location->name }}" width="250" height="200">
+                        <img src="{{ $location->picture_url }}" alt="{{ $location->name }}" width="350" height="300">
                     </div>
                     <div class='col'>
-                        <h4><a class="nav-link" href="{{ $location->loc_url }}">{{ $location->name }}</a>
-                        </h4>
-                        <ul>
-                            <li>{{ $location->address }}, {{ $location->city }}, {{ $location->state }},
+                        <div class='listDetails'>
+                            <h4><a href="{{ $location->loc_url }}">{{ $location->name }}</a>
+                            </h4>
+                            <li class='noBullets'>{{ $location->address }}, {{ $location->city }}, {{ $location->state }},
                                 {{ $location->country }}</li>
-                            <li>{{ $location->description }}</li>
-                        </ul>
+                            <br>
+                            <li class='noBullets'>{{ $location->description }}</li>
 
-                        <form method='POST' action='/list/{{ $location->name }}/update'>
-                            {{ csrf_field() }}
-                            {{ method_field('put') }}
-                            <div class="mb-3">
-                                <textarea class="form-control" rows="3" name='notes' test='{{ $location->name }}-notes-textarea'>{{ $location->pivot->notes }}</textarea>
-                                <button type='submit' class='btn btn-primary'
-                                    test='{{ $location->name }}-update-button'>Update notes</button>
+                            <div class='notes'>
+                                <h5>My Notes</h5>
+                                <form method='POST' action='/list/{{ $location->name }}/update'>
+                                    {{ csrf_field() }}
+                                    {{ method_field('put') }}
+                                    <div class="mb-3">
+                                        <textarea class="form-control" rows="3" name='notes' test='{{ $location->name }}-notes-textarea'>{{ $location->pivot->notes }}</textarea>
+                                        <br>
+                                        <button type='submit' class='btn btn-primary'
+                                            test='{{ $location->name }}-update-button'>Update notes</button>
+                                    </div>
+                                </form>
                             </div>
-                        </form>
-                        <div class='d-grid gap-2 d-md-flex justify-content-md-end'>
-                            <a href='/list/{{ $location->name }}/destroy'></a>Delete this location to your List</button>
+                            <div class='d-grid gap-2 d-md-flex justify-content-md-end'>
+                                <a href='/list/{{ $location->name }}/delete'>Delete this location from your List</a>
+                            </div>
                         </div>
                     </div>
                 </div>

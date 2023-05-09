@@ -12,5 +12,18 @@
 @endsection
 
 @section('content')
-    <h4>Are you sure you want to delete this location? </h4>
+    <div class='deleteCheck'>
+        <h2>Are you sure you want to delete {{ $location->name }} from your list?</h2>
+        <h4>This will also delete your notes for this location. Do you want to proceed?</h4>
+    </div>
+
+    <div class='deletePage'>
+        <form method='POST' action='/list/{{ $location->name }}/destroy'>
+            {{ method_field('delete') }}
+            {{ csrf_field() }}
+            <button type='submit' class='btn btn-danger'>Yes, Delete {{ $location->name }} from my locations</button>
+        </form>
+    </div>
+
+    <h5 class='deletePage'><a href='/list'>No, go back to My Locations</a></h5>
 @endsection

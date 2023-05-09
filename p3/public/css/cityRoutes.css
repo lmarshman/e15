@@ -54,6 +54,12 @@
     padding-bottom: 25px;
 }
 
+.discoverForm {
+    padding-left: 70px;
+    padding-top: 40px;
+    padding-bottom: 25px;
+}
+
 .flash-alert {
     background-color: yellow;
     width: 100%;
@@ -73,4 +79,27 @@
 
 .listNoLoc {
     padding-left: 25px;
+}
+
+.notes {
+    padding-top: 15px;
+}
+
+.listDetails {
+    padding-left: 15px;
+
+}
+
+.deleteCheck {
+    padding-top: 50px;
+    text-align: center;
+}
+
+.deletePage {
+    padding-top: 50px;
+    text-align: center;
+}
+
+.noBullets {
+    list-style-type: none
 }

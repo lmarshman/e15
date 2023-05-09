@@ -22,24 +22,25 @@
             <div class='discover'>
                 <div class='row'>
                     <div class='col-md-4'>
-                        <img src="{{ $location->picture_url }}" alt="{{ $location->name }}" width="250" height="200">
+                        <img src="{{ $location->picture_url }}" alt="{{ $location->name }}" width="350" height="250">
                     </div>
                     <div class='col'>
-                        <h4><a class="nav-link" href="{{ $location->loc_url }}">{{ $location->name }}</a>
-                        </h4>
-                        <ul>
-                            <li>{{ $location->address }}, {{ $location->city }}, {{ $location->state }},
+                        <div class='listDetails'>
+                            <h4><a href="{{ $location->loc_url }}">{{ $location->name }}</a></h4>
+                            <li class='noBullets'>{{ $location->address }}, {{ $location->city }}, {{ $location->state }},
                                 {{ $location->country }}</li>
-                            <li>{{ $location->description }}</li>
-                        </ul>
-                        <div class='d-grid gap-2 d-md-flex justify-content-md-end'>
-                            <a href='/list/{{ $location->name }}/add'>Add to list</a>
+                            <br>
+                            <li class='noBullets'>{{ $location->description }}</li>
+                            <br>
+                            <div class='d-grid gap-2 d-md-flex justify-content-md-end'>
+                                <a href='pages/{{ $location->name }}/reviews'>Check out Reviews for
+                                    {{ $location->name }}</a>
+                            </div>
+                            <div class='d-grid gap-2 d-md-flex justify-content-md-end'>
+                                <a href='/list/{{ $location->name }}/add'>Add {{ $location->name }} to your list</a>
+                            </div>
                         </div>
                     </div>
-                    <ul>
-                        <li name='long' class='hide'>{{ $location->long }} </li>
-                        <li name='lat' class='hide'>{{ $location->lat }} </li>
-                    </ul>
                 </div>
             </div>
         @endforeach
@@ -62,10 +63,9 @@
                                     href="https://www.google.com/search?q={{ $place['properties']['name'] }}{{ $city }}">{{ $place['properties']['name'] }}</a>
                             </h4>
                         </div>
-                        <div class='d-grid gap-2 d-md-flex justify-content-md-end'>
-                            <button type='button' class="btn btn-primary me-md-2"><a
-                                    href='/list/{{ $place['properties']['name'] }}/new'></a>Add
-                                this location to your List</button>
+                        <div class='d-grid
+                            gap-2 d-md-flex justify-content-md-end'>
+                            <a href='/list/{{ $location->name }}/add'>Add to list</a>
                         </div>
                         <ul>
                             <li name='long' class='hide'>{{ $place['geometry']['coordinates'][0] }} </li>

@@ -16,4 +16,9 @@ class Location extends Model
             ->withPivot('notes');
     }
 
+    public function reviews()
+    {
+        return $this->hasMany('App\Models\Review');
+    }
+
 }

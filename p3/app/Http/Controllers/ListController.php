@@ -39,5 +39,35 @@ class ListController extends Controller
     public function update(Request $request, $name)
     {
 
+        $location = Location::where('name', '=', $name)->first();
+        $user = $request->user();
+
+        $location = $user->locations()->where('locations.id', $location->id)->first();
+
+        $location->pivot->notes = $request->notes;
+        $location->pivot->save();
+
+        return redirect('/list')->with([
+            'flash-alert' => 'Your notes for '.$location->name.' was updated.'
+        ]);
+
+    }
+
+    public function checkDelete(Request $request, $name)
+    {
+        $location = Location::where('name', '=', $name)->first();
+
+        return view('/list/checkDelete', ['location' => $location]);
+    }
+
+    public function destroy(Request $request, $name)
+    {
+        $location = $request->user()->locations()->where('name', $name)->first();
+
+        $location->pivot->delete();
+
+        return redirect('/list')->with([
+            'flash-alert' => 'The location ' . $location->name . ' was removed from your list'
+        ]);
     }
 }

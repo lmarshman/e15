@@ -108,5 +108,71 @@
         "picture_url": "https://assets1.cbsnewsstatic.com/hub/i/r/2022/12/06/7be9f284-dde2-428a-a583-f011e48895ba/thumbnail/1200x630g2/87c52073687b9be957cd9b88d5b80354/fenway-park.jpg",
         "loc_url": "https://www.mlb.com/redsox/ballpark",
         "description": "Fenway Park is a baseball stadium located in Boston, Massachusetts, near Kenmore Square. Since 1912, it has been the home of the Boston Red Sox, the city's American League baseball team, and, since 1953, its only Major League Baseball (MLB) franchise. While the stadium was built in 1912, it was substantially rebuilt in 1934, and underwent major renovations and modifications in the 21st century. It is the oldest active ballpark in MLB. Because of its age and constrained location in Boston's dense Fenway Kenmore neighborhood, the park has many quirky features, including The Triangle, Pesky's Pole, and the Green Monster in left field. It is the fifth-smallest among MLB ballparks by seating capacity, second-smallest by total capacity, and one of eight that cannot accommodate at least 40,000 spectators."
+    },
+    "Meiji Shrine": {
+        "address": "1-1 Yoyogikamizonocho Shibuya City",
+        "city": "Tokyo",
+        "state": "",
+        "country": "Japan",
+        "lat": "35.6764",
+        "long": "139.6993",
+        "picture_url": "https://blog.japanwondertravel.com/wp-content/uploads/2021/03/1582531_l-scaled.jpg",
+        "loc_url": "meijijingu.or.jp/en/",
+        "description": "Meiji Shrine (明治神宮, Meiji Jingū), is a Shinto shrine in Shibuya, Tokyo, that is dedicated to the deified spirits of Emperor Meiji and his wife, Empress Shōken. Meiji Shrine is located in a forest that covers an area of 70 hectares (170 acres). This area is covered by an evergreen forest that consists of 120,000 trees of 365 different species, which were donated by people from all parts of Japan when the shrine was established. The forest is visited by many as a recreation and relaxation area in the center of Tokyo."
+    },
+    "Shibuya Crossing": {
+        "address": "2 Chome-1 Dogenzaka Shibuya City",
+        "city": "Tokyo",
+        "state": "",
+        "country": "Japan",
+        "lat": "35.6595",
+        "long": "139.7006",
+        "picture_url": "https://a3.cdn.japantravel.com/photo/3016-194379/1440x960!/tokyo-shibuya-crossing-194379.jpg",
+        "loc_url": "https://en.japantravel.com/tokyo/shibuya-crossing/3016",
+        "description": "Shibuya Scramble Crossing (渋谷スクランブル交差点, Shibuya sukuranburu kōsaten), or commonly known as Shibuya Crossing, is a popular scramble crossing in Shibuya, Tokyo, Japan.[1] It is located in front of the Shibuya Station Hachikō exit and stops vehicles in all directions to allow pedestrians to inundate the entire intersection. The statue of Hachikō, between the station and the intersection is a common meeting place and almost always crowded."
+    },
+    "Harajuku": {
+        "address": "1 Chome-17-1 Jingumae Shibuya City",
+        "city": "Tokyo",
+        "state": "",
+        "country": "Japan",
+        "lat": "35.6713698",
+        "long": "139.7033032",
+        "picture_url": "https://www.gotokyo.org/en/spot/48/images/48_0129_1_1400x1100.jpg",
+        "loc_url": "https://www.japan-guide.com/e/e3006.html",
+        "description": "Buzzing Harajuku is renowned for colorful street art and youth fashion, with quirky vintage clothing stores and cosplay shops along Takeshita Street, and traditional, upmarket boutiques on leafy Omotesando Avenue. Small, trendy bars fill the surrounding lanes, while dessert shops and carts specialize in sweet crêpes, donuts, and bubble tea. Watari Museum of Contemporary Art hosts cutting-edge temporary exhibitions."
+    },
+    "Palace of Fine Arts San Francisco": {
+        "address": "3601 Lyon St",
+        "city": "San Francisco",
+        "state": "CA",
+        "country": "United States",
+        "lat": "37.8029",
+        "long": "122.4484",
+        "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Palace_of_Fine_Arts_%2816794p%29.jpg/1200px-Palace_of_Fine_Arts_%2816794p%29.jpg",
+        "loc_url": "https://palaceoffinearts.com/",
+        "description": "The Palace of Fine Arts is a monumental structure located in the Marina District of San Francisco, California, originally constructed for the 1915 Panama–Pacific International Exposition to exhibit works of art. Completely rebuilt from 1964 to 1974, it is the only structure from the exposition that survives on site."
+    },
+    "Golden Gate Bridge": {
+        "address": "Golden Gate Bridge Coastal Trail",
+        "city": "San Francisco",
+        "state": "CA",
+        "country": "United States",
+        "lat": "37.8199",
+        "long": "122.4783",
+        "picture_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/GoldenGateBridge-001.jpg",
+        "loc_url": "https://www.goldengate.org/bridge/visiting-the-bridge/",
+        "description": "The Golden Gate Bridge is a suspension bridge spanning the Golden Gate, the one-mile-wide (1.6 km) strait connecting San Francisco Bay and the Pacific Ocean. The structure links the U.S. city of San Francisco, California—the northern tip of the San Francisco Peninsula—to Marin County, carrying both U.S. Route 101 and California State Route 1 across the strait. It also carries pedestrian and bicycle traffic, and is designated as part of U.S. Bicycle Route 95. Recognized by the American Society of Civil Engineers as one of the Wonders of the Modern World, the bridge is one of the most internationally recognized symbols of San Francisco and California."
+    },
+    "Pier 39 San Francisco": {
+        "address": "Pier 39",
+        "city": "San Francisco",
+        "state": "CA",
+        "country": "United States",
+        "lat": "37.8087",
+        "long": "122.4098",
+        "picture_url": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Pier_39%2C_SF%2C_CA%2C_jjron_26.03.2012.jpg",
+        "loc_url": "https://www.pier39.com/",
+        "description": "Pier 39 is a shopping center and popular tourist attraction built on a pier in San Francisco, California. At Pier 39, there are shops, restaurants, a video arcade, street performances, the Aquarium of the Bay, virtual 3D rides, and views of California sea lions hauled out on docks on Pier 39's marina."
     }
 }

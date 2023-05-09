@@ -15,13 +15,13 @@
     <h3 class='addressHeader'>Add a new location</h3>
 
     <div class='addressForm'>
-        <form method='POST' action='pages/list/{name}/save'>
+        <form method='POST' action='/pages/addLocation'>
 
             {{ csrf_field() }}
 
             <div class="mb-3">
                 <label class="form-label" for='name'>Location Name</label>
-                <input type='text' class="form-control" name='name' id='slug' value='{{ old('name') }}'>
+                <input type='text' class="form-control" name='name' id='name' value='{{ old('name') }}'>
             </div>
             <div class="mb-3">
                 <label class="form-label" for='address'>Building number and street name</label>
