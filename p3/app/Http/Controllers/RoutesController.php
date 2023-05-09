@@ -281,7 +281,6 @@ class RoutesController extends Controller
         $loc4 = $request->input('loc4', null);
         $loc5 = $request->input('loc5', null);
 
-
         $startLatLong = self::getLatLong($start);
         $loc1LatLong =
         $loc2LatLong =
