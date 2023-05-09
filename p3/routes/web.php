@@ -7,6 +7,12 @@ use App\Http\Controllers\ListController;
 
 Route::get('/', [RoutesController::class, 'homePage']);
 
+# Routes for testing purposes
+if (!App::environment('production')) {
+    Route::get('/test/login-as/{userId}', [TestController::class, 'loginAs']);
+    Route::get('/test/refresh-database', [TestController::class, 'refreshDatabase']);
+}
+
 Route::group(['middleware' => 'auth'], function () {
 
     // Route to form for user to manually enter a new location
@@ -19,7 +25,8 @@ Route::group(['middleware' => 'auth'], function () {
     // Route to generate list of tourist locations for the city.
     Route::get('/pages/discover', [RoutesController::class, 'discoverCities']);
 
-    Route::get('pages/{name}/reviews', [RoutesController::class, 'showReviews']);
+    Route::get('/pages/{name}/reviews', [RoutesController::class, 'showReviews']);
+    Route::post('/pages/{name}/reviews/add', [RoutesController::class, 'createReview']);
 
 
     // Route to show the user's saved locations
@@ -36,7 +43,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('/list/{name}/destroy', [ListController::class, 'destroy']);
 
     // // Route to page to add locations from cityPlaces function (locations generated from an API call)
-    // Route::get('/pages/list/{name}', [RoutesController::class, 'addCityPlaces']);
+    // Route::get('/list/{name}/places', [ListController::class, 'addCityPlaces']);
     // // Route to function that processes adding cityPlaces generated location to Database
-    // Route::post('/pages/list/{name}/new', [RoutesController::class, 'addCityPlacesLoc']);
+    // Route::post('/list/{name}/places/new', [ListController::class, 'addCityPlacesLoc']);
 });
