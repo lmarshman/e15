@@ -12,7 +12,7 @@
 @endsection
 
 @section('content')
-    <h1 class='listHeader'>My Locations</h1>
+    <h1 test="Location-header" class='listHeader'>My Locations</h1>
 
     @if ($locations->count() == 0)
         <div class='listNoLoc'>

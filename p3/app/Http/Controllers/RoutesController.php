@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Arr;
 use App\Models\Location;
+use App\Models\Review;
 
 class RoutesController extends Controller
 {
@@ -26,11 +27,43 @@ class RoutesController extends Controller
         return view('/pages/addPlace');
     }
 
-    public function addressRoute(Request $request)
+    public function showReviews(Request $request, $name)
     {
-        $locations = $request->user()->locations->sortByDesc('pivot.city');
+        $location = Location::where('name', '=', $name)->first();
 
-        return view('/routes/RoutesForm', ['locations' => $locations]);
+        // $reviews = Review::where('location_id', '=', $location->id)->get();
+        $reviews = Review::where('location_id', '=', $location->id)->orderBy('created_at', 'DESC')->get();
+
+        return view('/pages/reviews')->with([
+            'location' => $location,
+            'reviews' => $reviews
+        ]);
+
+    }
+
+    public function createReview(Request $request, $name)
+    {
+        $request->validate([
+            'review' => 'required',
+        ]);
+
+        $user = $request->user();
+        $location = Location::where('name', '=', $name)->first();
+
+        $review = new Review();
+        $review->name = $user->name;
+        $review->body = $request->review;
+        $review->location()->associate($location);
+
+        $review->save();
+
+        $reviews = Review::where('location_id', '=', $location->id)->orderBy('created_at', 'DESC')->get();
+
+        return redirect($request->headers->get('referer'))->with([
+            'reviews' => $reviews,
+            'flash-alert' => 'Your Review has been added'
+        ]);
+
     }
 
     // API call to get the latitude and longitude of the city the user has searched for on the Discover page.
@@ -117,38 +150,6 @@ class RoutesController extends Controller
             CURLOPT_CUSTOMREQUEST => "GET",
             CURLOPT_HTTPHEADER => [
                 "X-RapidAPI-Host: google-maps-geocoding.p.rapidapi.com",
-                "X-RapidAPI-Key: f3de2fd521msh6b5d0d93ff4aabep1b2f88jsnae4c606a8e41"
-            ],
-        ]);
-
-        $response = curl_exec($curl);
-        $err = curl_error($curl);
-
-        curl_close($curl);
-
-        if ($err) {
-            echo "cURL Error #:" . $err;
-        } else {
-            return $response;
-        }
-    }
-
-    // API call to calculate the didstance between two locations. Uses latitude and longitude for calculation.
-    public function distCalc()
-    {
-
-        $curl = curl_init();
-
-        curl_setopt_array($curl, [
-            CURLOPT_URL => "https://distance-calculator8.p.rapidapi.com/calc?startLatitude=-26.311960&startLongitude=-48.880964&endLatitude=-26.313662&endLongitude=-48.881103",
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => "",
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 30,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => "GET",
-            CURLOPT_HTTPHEADER => [
-                "X-RapidAPI-Host: distance-calculator8.p.rapidapi.com",
                 "X-RapidAPI-Key: f3de2fd521msh6b5d0d93ff4aabep1b2f88jsnae4c606a8e41"
             ],
         ]);
@@ -263,42 +264,9 @@ class RoutesController extends Controller
 
     }
 
-    public function address(Request $request)
-    {
-        $request->validate([
-            'start' => 'required',
-            'loc1' => 'required|unique:locations,name',
-            'loc2' => 'required|unique:locations,name',
-            'loc3' => 'sometimes|unique:locations,name',
-            'loc4' => 'sometimes|unique:locations,name',
-            'loc5' => 'sometimes|unique:locations,name',
-        ]);
 
-        $start = $request->input('start', null);
-        $loc1 = $request->input('loc1', null);
-        $loc2 = $request->input('loc2', null);
-        $loc3 = $request->input('loc3', null);
-        $loc4 = $request->input('loc4', null);
-        $loc5 = $request->input('loc5', null);
 
-        $startLatLong = self::getLatLong($start);
-        $loc1LatLong =
-        $loc2LatLong =
 
-        $arr = json_decode($startLatLong, true);
-
-        $location = $arr['results'][0]['geometry']['location'];
-        $lat = $location['lat'];
-        $long =$location['lng'];
-        dump($lat);
-        dump($long);
-
-    }
-
-    public function makeRoute()
-    {
-
-    }
 
 
 }

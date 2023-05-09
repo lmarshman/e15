@@ -37,6 +37,7 @@
 
 .discover {
     border-style: solid;
+    border-radius: 10px;
     border-width: 1.75px;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -102,4 +103,28 @@
 
 .noBullets {
     list-style-type: none
+}
+
+.reviewsHeader {
+    padding-top: 30px;
+    padding-left: 50px;
+}
+
+.reviews {
+    padding-top: 30px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 50px;
+    margin-right: 100px;
+    margin-left: 50px;
+    border-bottom-style: solid;
+    border-width: 1.75px;
+}
+
+.reviewForm {
+    padding-left: 50px;
+    padding-right: 400px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+
 }

@@ -39,13 +39,13 @@
                         <a class="nav-link" href='/login'>Login</a>
                     </li>
                 @else
-                    <li class="nav-item">
-                        <form method='POST' id='logout' action='/logout'>
-                            {{ csrf_field() }}
-                            <a class="nav-link" href='#'
-                                onClick='document.getElementById("logout").submit();'>Logout</a>
-                        </form>
-                    </li>
+                    <form method='POST' id='logout' action='/logout'>
+                        {{ csrf_field() }}
+
+                        <button type='submit' class='button-link' test='logout-button'>
+                            Logout
+                        </button>
+                    </form>
                 @endif
             </ul>
         </div>

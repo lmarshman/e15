@@ -18,12 +18,6 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $user = User::updateOrCreate(
-            ['email' => 'lmarshman@hbs.edu', 'name' => 'Laura Marshman'],
-            ['password' => Hash::make('asdfasdf')
-        ]
-        );
-
-        $user = User::updateOrCreate(
             ['email' => 'jill@harvard.edu', 'name' => 'Jill Harvard'],
             ['password' => Hash::make('asdfasdf')
         ]
@@ -31,6 +25,12 @@ class UsersTableSeeder extends Seeder
 
         $user = User::updateOrCreate(
             ['email' => 'jamal@harvard.edu', 'name' => 'Jamal Harvard'],
+            ['password' => Hash::make('asdfasdf')
+        ]
+        );
+
+        $user = User::updateOrCreate(
+            ['email' => 'lmarshman@hbs.edu', 'name' => 'Laura Marshman'],
             ['password' => Hash::make('asdfasdf')
         ]
         );

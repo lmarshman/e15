@@ -33,7 +33,7 @@
                             <li class='noBullets'>{{ $location->description }}</li>
                             <br>
                             <div class='d-grid gap-2 d-md-flex justify-content-md-end'>
-                                <a href='pages/{{ $location->name }}/reviews'>Check out Reviews for
+                                <a href='/pages/{{ $location->name }}/reviews'>Check out Reviews for
                                     {{ $location->name }}</a>
                             </div>
                             <div class='d-grid gap-2 d-md-flex justify-content-md-end'>

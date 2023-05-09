@@ -13,7 +13,9 @@ class ListController extends Controller
 {
     public function showList(Request $request)
     {
-        $locations = $request->user()->locations->sortByDesc('pivot.created_at');
+        // $locations = $request->user()->locations->sortByDesc('pivot.created_at');
+
+        $locations = $request->user()->locations->sortBy('pivot.city');
 
         return view('/list/listPage', ['locations' => $locations]);
     }

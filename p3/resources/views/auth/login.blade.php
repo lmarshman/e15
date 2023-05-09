@@ -20,12 +20,13 @@
                 <input class="form-control" id='email' type='email' name='email' value='{{ old('email') }}'
                     autofocus>
             </div>
-            {{-- @include('includes.error-field', ['fieldName' => 'email']) --}}
+            @include('includes.error-field', ['fieldName' => 'email'])
+
             <div class="mb-3">
                 <label class="form-label" for='password'>Password</label>
                 <input class="form-control" id='password' type='password' name='password'>
             </div>
-            {{-- @include('includes.error-field', ['fieldName' => 'password']) --}}
+            @include('includes.error-field', ['fieldName' => 'password'])
 
             <div class="mb-3 form-check">
                 <label class="form-check-label">
@@ -33,7 +34,7 @@
                     Remember Me
                 </label>
             </div>
-            <button type='submit' class='btn btn-primary'>Login</button>
+            <button test='login-button' type='submit' class='btn btn-primary'>Login</button>
         </form>
     </div>
 @endsection

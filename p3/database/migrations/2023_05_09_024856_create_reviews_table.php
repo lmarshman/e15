@@ -18,6 +18,7 @@ return new class () extends Migration {
 
             $table->string('name');
             $table->text('body');
+            // $table->bigInteger('loc_id');
 
 
         });

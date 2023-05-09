@@ -11,9 +11,7 @@
             <div class="col-md-6 px-0">
                 <h1 class="display-4">CityRoutes</h1>
                 @if (Auth::user())
-                    <h2>
-                        Hello {{ Auth::user()->name }}!
-                    </h2>
+                    <h2 test="user-welcome">Hello {{ Auth::user()->name }}!</h2>
                 @endif
                 <p class="lead my-6">Welcome to CityRoutes! Your tool for keeping track of the places you want to visit, and
                     the best route to visit
@@ -30,23 +28,24 @@
         <div class="row mb-2 left-border">
             <div class="card cardSpacing" style="width:350px">
                 <div class="card-body">
-                    <h4 class="card-title">My Cities</h4>
-                    <p class="card-text">View your cities</p>
-                    <a href="/list" class="btn btn-primary">View your lists</a>
+                    <h4 class="card-title">My Locations</h4>
+                    <p class="card-text">View your Locations</p>
+                    <a test='locations-button' href="/list" class="btn btn-primary">View your places!</a>
                 </div>
             </div>
             <div class="card cardSpacing" style="width:350px">
                 <div class="card-body">
                     <h4 class="card-title">Discover</h4>
                     <p class="card-text">Add new places to your existing lists</p>
-                    <a href="/pages/discover/cities" class="btn btn-primary">Find new things to see!</a>
+                    <a test='discover-link' href="/pages/discover/cities" class="btn btn-primary">Find new things to
+                        see!</a>
                 </div>
             </div>
             <div class="card cardSpacing" style="width:350px">
                 <div class="card-body">
                     <h4 class="card-title">Explore</h4>
-                    <p class="card-text">Make a Route!</p>
-                    <a href="/pages/addLocation/new" class="btn btn-primary">Add a new place!</a>
+                    <p class="card-text">Can't find a place you're looking for?</p>
+                    <a test='add-link' href="/pages/addLocation/new" class="btn btn-primary">Add a new location!</a>
                 </div>
             </div>
         </div>
