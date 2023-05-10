@@ -12,26 +12,31 @@ use App\Models\Review;
 
 class RoutesController extends Controller
 {
+    // Displays the home page
     public function homePage(Request $request)
     {
         return view('/pages/homePage');
     }
 
+    // Displays the discover page
     public function discover(Request $request)
     {
         return view('/pages/discover');
     }
 
+    // Displays the form that allows users to add a location to the database
     public function create(Request $request)
     {
         return view('/pages/addPlace');
     }
 
+    // Displays the reviews for a particular location
     public function showReviews(Request $request, $name)
     {
+        // Query for location information
         $location = Location::where('name', '=', $name)->first();
 
-        // $reviews = Review::where('location_id', '=', $location->id)->get();
+        // Query for reviews for location and displays in decending order
         $reviews = Review::where('location_id', '=', $location->id)->orderBy('created_at', 'DESC')->get();
 
         return view('/pages/reviews')->with([
@@ -41,6 +46,7 @@ class RoutesController extends Controller
 
     }
 
+    // Function for user to add a review to a location
     public function createReview(Request $request, $name)
     {
         $request->validate([
@@ -57,6 +63,7 @@ class RoutesController extends Controller
 
         $review->save();
 
+        // Queries DB again to return reviews to the page, including the one just added by the user.
         $reviews = Review::where('location_id', '=', $location->id)->orderBy('created_at', 'DESC')->get();
 
         return redirect($request->headers->get('referer'))->with([
@@ -176,11 +183,14 @@ class RoutesController extends Controller
 
         $city = $request->input('city', null);
 
+        // Gets the lat and long for the city
         $cityLatLong = self::cityLatLong($city);
         $arr = json_decode($cityLatLong);
 
+        // Queries DB for locations from that city
         $locations = Location::where('city', '=', $city)->get();
 
+        // If there aren't any results from the API or the DB
         if ($arr == null and $locations == false) {
 
             $places = 'null';
@@ -192,6 +202,7 @@ class RoutesController extends Controller
                 'locations' => $locations
             ]);
 
+        // If no locations from API
         } elseif ($arr == null) {
 
             $places = 'null';
@@ -207,6 +218,7 @@ class RoutesController extends Controller
             $cityLat = $arr->lat;
             $cityLong = $arr->lon;
 
+            // Call to API to generate list of tourist locations for city
             $arr2 = self::cityPlaces($cityLat, $cityLong);
             $places = $arr2;
 
@@ -238,11 +250,14 @@ class RoutesController extends Controller
         $state = $request->input('state', null);
         $country = $request->input('country', null);
 
+        // Formatted address parameter for function getLatLong
         $stringAddress = $address." ".$city." ".$state;
 
+        // API call to get the lat and long for a location added by user
         $locLatLong = self::getLatLong($stringAddress);
         $arr = json_decode($locLatLong, true);
 
+        // Isolating lat and long from API results
         $location = $arr['results'][0]['geometry']['location'];
         $lat = $location['lat'];
         $long =$location['lng'];
@@ -263,10 +278,5 @@ class RoutesController extends Controller
         return redirect('/pages/addLocation/new')->with(['flash-alert' => 'The location '.$location->name.' was added.']);
 
     }
-
-
-
-
-
 
 }
