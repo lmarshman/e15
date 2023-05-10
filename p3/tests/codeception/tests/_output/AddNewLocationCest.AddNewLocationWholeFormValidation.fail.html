@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+
+
+
+
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <title>    CityRoutes
+</title>
+    <meta charset='utf-8'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href='/css/cityRoutes.css' type='text/css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href='/css/cityRoutes.css' rel='stylesheet'>
+</head>
+
+<body>
+    
+    <div class="navbar navbar-light navbar-collapse" style="background-color: #e3f2fd;" data-bs-theme="dark">
+        <div class="container-fluid">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                                    <li class="nav-item">
+                        <a class="nav-link" href="/list">My Locations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pages/discover/cities">Discover</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pages/addLocation/new">Add a new Location</a>
+                    </li>
+                                                    <form method='POST' id='logout' action='/logout'>
+                        <input type="hidden" name="_token" value="guxK6r8rqHWUgtyalvutFvFIcVBaJ6XVLusSIhtD">
+
+                        <button type='submit' class='button-link' test='logout-button'>
+                            Logout
+                        </button>
+                    </form>
+                            </ul>
+        </div>
+    </div>
+
+    <section id='main'>
+            <h3 class='addressHeader'>Add a new location</h3>
+
+    <div class='addressForm'>
+        <form method='POST' action='/pages/addLocation'>
+
+            <input type="hidden" name="_token" value="guxK6r8rqHWUgtyalvutFvFIcVBaJ6XVLusSIhtD">
+
+            <div class="mb-3">
+                <label class="form-label" for='name'>Location Name</label>
+                <input type='text' class="form-control" name='name' id='name' test='add-name'
+                    value=''>
+            </div>
+            <div test='error-field-name' class='alert alert-danger error'>The name field is required.</div>
+
+            <div class="mb-3">
+                <label class="form-label" for='address'>Building number and street name</label>
+                <input type='text' class="form-control" name='address' id='address' test='add-address'
+                    value=''>
+            </div>
+            <div test='error-field-address' class='alert alert-danger error'>The address field is required.</div>
+
+            <div class="mb-3">
+                <label class="form-label" for='city'>City</label>
+                <input type='text' class="form-control" name='city' id='city' test='add-city'
+                    value=''>
+            </div>
+            <div test='error-field-city' class='alert alert-danger error'>The city field is required.</div>
+
+            <div class="mb-3">
+                <label class="form-label" for='state'>State Abbreviation (XX)</label>
+                <input type='text' class="form-control" name='state' id='state' test='add-state'
+                    value=''>
+            </div>
+            <div test='error-field-state' class='alert alert-danger error'>The state field is required.</div>
+
+            <div class="mb-3">
+                <label class="form-label" for='country'>Country</label>
+                <input type='text' class="form-control" name='country' id='country' test='add-country'
+                    value=''>
+            </div>
+            <div test='error-field-country' class='alert alert-danger error'>The country field is required.</div>
+
+            <div class="mb-3">
+                <label class="form-label" for='picture_url'>Location Picture URL</label>
+                <input type='text' class="form-control" name='picture_url' id='picture_url' test='add-picture_url'
+                    value=''>
+            </div>
+            <div test='error-field-picture_url' class='alert alert-danger error'>The picture url field is required.</div>
+
+            <div class="mb-3">
+                <label class="form-label" for='loc_url'>Location Website </label>
+                <input type='text' class="form-control" name='loc_url' id='loc_url' test='add-loc_url'
+                    value=''>
+            </div>
+            <div test='error-field-loc_url' class='alert alert-danger error'>The loc url field is required.</div>
+
+            <div class="mb-3">
+                <label class="form-label" for='description'>Description</label>
+                <textarea class="form-control" name='description' test='add-description'></textarea>
+            </div>
+            <div test='error-field-description' class='alert alert-danger error'>The description field is required.</div>
+
+            <button type='submit' class='btn btn-primary' test='add-button'>Add Location</button>
+
+        </form>
+    </div>
+    </section>
+
+</body>
+
+</html>

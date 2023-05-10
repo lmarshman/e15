@@ -68,7 +68,7 @@ class LoginPageCest
         $I->amOnPage('/test/login-as/1');
         $I->amOnPage('/');
         $I->seeElement('[test=logout-button]');
-        // $I->click('[test=logout-button]');
-        // $I->seeElement('[test=login-link]');
+        $I->click('[test=logout-button]');
+        $I->seeElement('[test=login-link]');
     }
 }

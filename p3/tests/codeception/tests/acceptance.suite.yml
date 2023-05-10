@@ -9,6 +9,6 @@ modules:
     enabled:
         - Asserts
         - PhpBrowser:
-            url: http://p3.lauramarshman.com
+            url: http://p3.lauramarshman.com/
         - \Helper\Acceptance
-step_decorators: ~       
+step_decorators: ~        

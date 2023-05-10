@@ -13,20 +13,23 @@ class MyLocationsCest
         $I->amOnPage('/test/login-as/1');
         $I->amOnPage('/list');
 
-        // $I->seeElement('[test=Location-header]');
+        $I->seeElement('[test=Location-header]');
 
-        // $I->amOnPage('/login');
+        $I->see('My Locations');
 
-        // $I->fillField('[name=email]', 'jill@harvard.edu');
-        // $I->fillField('[name=password]', 'asdfasdf');
-        // $I->click('[test=login-button]');
+        $I->see('Museum of Fine Arts Boston');
+    }
+    public function DeleteListItem(AcceptanceTester $I)
+    {
+        $I->amOnPage('/test/login-as/1');
+        $I->amOnPage('/list');
 
-        // $I-see('Jill Harvard');
+        $I->click('Delete Museum of Fine Arts Boston from your List');
 
-        // $I->click('[test=locations-button]');
+        $I->see('Are you sure you want to delete Museum of Fine Arts Boston from your list?');
 
-        // $I->amOnPage('/list');
+        $I->click('Yes, Delete Museum of Fine Arts Boston from my locations');
 
-        // $I->see('My Locations');
+        $I->see('The location Museum of Fine Arts Boston was removed from your list');
     }
 }

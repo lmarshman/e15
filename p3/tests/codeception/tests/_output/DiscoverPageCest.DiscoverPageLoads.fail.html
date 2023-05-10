@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+
+
+
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <title>    CityRoutes
+</title>
+    <meta charset='utf-8'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href='/css/cityRoutes.css' type='text/css' rel='stylesheet'>
+    </head>
+
+<body>
+    
+    <div class="navbar navbar-light navbar-collapse" style="background-color: #e3f2fd;" data-bs-theme="dark">
+        <div class="container-fluid">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                                    <li class="nav-item">
+                        <a class="nav-link" href="/list">My Locations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pages/discover/cities">Discover</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pages/addLocation/new">Add a new Location</a>
+                    </li>
+                                                    <form method='POST' id='logout' action='/logout'>
+                        <input type="hidden" name="_token" value="TmyoJmkhKdXy9hsARb2Skm2KXNjT0N8gSkH6azYa">
+
+                        <button type='submit' class='button-link' test='logout-button'>
+                            Logout
+                        </button>
+                    </form>
+                            </ul>
+        </div>
+    </div>
+
+    <section id='main'>
+            <div class='addressForm'>
+        <h1>Discover new places</h1>
+        <form method='GET' action='/pages/discover'>
+            <div class="mb-3">
+                <label class="form-label" for='city'>
+                    What city would you like to explore?
+                    <input class="form-control" type='text' name='city' value=''>
+                </label>
+            </div>
+            <button type='submit' class='btn btn-primary'>Discover!</button>
+        </form>
+    </div>
+    </section>
+
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+
+
+
+
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <title>    CityRoutes
+</title>
+    <meta charset='utf-8'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href='/css/cityRoutes.css' type='text/css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href='/css/cityRoutes.css' rel='stylesheet'>
+</head>
+
+<body>
+    
+    <div class="navbar navbar-light navbar-collapse" style="background-color: #e3f2fd;" data-bs-theme="dark">
+        <div class="container-fluid">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                                    <li class="nav-item">
+                        <a class="nav-link" href="/list">My Locations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pages/discover/cities">Discover</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pages/addLocation/new">Add a new Location</a>
+                    </li>
+                                                    <form method='POST' id='logout' action='/logout'>
+                        <input type="hidden" name="_token" value="0bzk470JWbDhGC75fHQpo7BJCxUnBnnlNtpF3xYb">
+
+                        <button type='submit' class='button-link' test='logout-button'>
+                            Logout
+                        </button>
+                    </form>
+                            </ul>
+        </div>
+    </div>
+
+    <section id='main'>
+        
+    <h3 class='reviewsHeader'>Check out reviews for Old North Church</h3>
+
+    <div class='discover'>
+        <div class='row'>
+            <div class='col-md-4'>
+                <img src="https://www.nps.gov/bost/learn/historyculture/images/ONC-interior-Web.jpg?maxwidth=1300&amp;maxheight=1300&amp;autorotate=false" alt="Old North Church" width="350" height="250">
+            </div>
+            <div class='col'>
+                <div class='listDetails'>
+                    <h4><a href="https://www.oldnorth.com/">Old North Church</a></h4>
+                    <li class='noBullets'>193 Salem St, Boston, MA,
+                        United States</li>
+                    <br>
+                    <li class='noBullets'>Established in 1723 as Christ Church in the City of Boston, Old North Church is both a national historic landmark operated by Old North Illuminated and an active Episcopal Church congregation. Old North is the oldest church building and the longest-serving Episcopal congregation in the city.</li>
+                    <br>
+                    <div class='d-grid gap-2 d-md-flex justify-content-md-end'>
+                        <a href='/list/Old North Church/add'>Add Old North Church to your list</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class='reviewForm'>
+        <form method='POST' action='/pages/Old North Church/reviews/add'>
+
+            <input type="hidden" name="_token" value="0bzk470JWbDhGC75fHQpo7BJCxUnBnnlNtpF3xYb">
+
+            <div class="mb-3">
+                <h5>Write a review for Old North Church</h5>
+                <p>What did you think? Would you go again? Any tips or fun facts?</p>
+                <textarea type='textarea' class="form-control" name='review' id='review' test='review-text' rows="4"
+                    value=''></textarea>
+            </div>
+            <button type='submit' test='create-review-link' class='btn btn-primary'>Post Review</button>
+
+                    </form>
+    </div>
+
+    <h3 class='reviews'>User Reviews</h3>
+
+                        <div class='discover'>
+                <div class='listDetails'>
+                    <h4>Jamal Harvard</h4>
+                    <h6>2023-05-04 11:50:15</h6>
+                    <br>
+                    <li class='noBullets'>One of my favorite historic sites in Boston!</li>
+                </div>
+            </div>
+                    <div class='discover'>
+                <div class='listDetails'>
+                    <h4>Laura Marshman</h4>
+                    <h6>2023-04-27 12:45:57</h6>
+                    <br>
+                    <li class='noBullets'>Did you know this is still a working church?! I had no idea!</li>
+                </div>
+            </div>
+                    <div class='discover'>
+                <div class='listDetails'>
+                    <h4>Jill Harvard</h4>
+                    <h6>2023-04-24 23:51:40</h6>
+                    <br>
+                    <li class='noBullets'>Get here early to avoid the crouds!</li>
+                </div>
+            </div>
+                </section>
+
+</body>
+
+</html>
