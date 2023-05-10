@@ -50,7 +50,8 @@
                                 </form>
                             </div>
                             <div class='d-grid gap-2 d-md-flex justify-content-md-end'>
-                                <a href='/list/{{ $location->name }}/delete'>Delete this location from your List</a>
+                                <a href='/list/{{ $location->name }}/delete'>Delete {{ $location->name }} from your
+                                    List</a>
                             </div>
                         </div>
                     </div>

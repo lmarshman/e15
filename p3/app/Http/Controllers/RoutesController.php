@@ -228,7 +228,7 @@ class RoutesController extends Controller
             'city' => 'required',
             'state' => 'required|max:2',
             'country' => 'required',
-            'picture_url' => 'required',
+            'picture_url' => 'required|max:250',
             'loc_url' => 'required',
             'description' => 'required|min:100',
         ]);

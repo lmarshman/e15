@@ -12,45 +12,50 @@
 @endsection
 
 @section('content')
-    <h3 class='addressHeader'>Add a new location</h3>
+    <div class='addressHeader'>
+        <h2>Add {{ $name }} to your list</h2>
+        <p>It looks like some information is missing for this location. Please fill in the information below to add it to
+            your
+            list.</p>
+    </div>
 
     <div class='addressForm'>
-        <form method='POST' action='/pages/addLocation'>
+        <form method='POST' action='/list/{{ $name }}/place/new/cities/change'>
 
             {{ csrf_field() }}
 
             <div class="mb-3">
                 <label class="form-label" for='name'>Location Name</label>
-                <input type='text' class="form-control" name='name' id='name' test='add-name'
-                    value='{{ old('name') }}'>
+                <input type='text' class="form-control" name='name' id='name' test='place-name'
+                    value='{{ $name }}'>
             </div>
             @include('includes/error-field', ['fieldName' => 'name'])
 
             <div class="mb-3">
                 <label class="form-label" for='address'>Building number and street name</label>
                 <input type='text' class="form-control" name='address' id='address' test='add-address'
-                    value='{{ old('address') }}'>
+                    value='{{ $addressCombined }}'>
             </div>
             @include('includes/error-field', ['fieldName' => 'address'])
 
             <div class="mb-3">
                 <label class="form-label" for='city'>City</label>
                 <input type='text' class="form-control" name='city' id='city' test='add-city'
-                    value='{{ old('city') }}'>
+                    value='{{ $city }}'>
             </div>
             @include('includes/error-field', ['fieldName' => 'city'])
 
             <div class="mb-3">
                 <label class="form-label" for='state'>State Abbreviation (XX)</label>
                 <input type='text' class="form-control" name='state' id='state' test='add-state'
-                    value='{{ old('state') }}'>
+                    value='{{ $state }}'>
             </div>
             @include('includes/error-field', ['fieldName' => 'state'])
 
             <div class="mb-3">
                 <label class="form-label" for='country'>Country</label>
                 <input type='text' class="form-control" name='country' id='country' test='add-country'
-                    value='{{ old('country') }}'>
+                    value='{{ $country }}'>
             </div>
             @include('includes/error-field', ['fieldName' => 'country'])
 
@@ -73,6 +78,12 @@
                 <textarea class="form-control" name='description' test='add-description'>{{ old('description') }}</textarea>
             </div>
             @include('includes/error-field', ['fieldName' => 'description'])
+
+            <input type='hidden' class="form-control" name='lat' id='lat' test='lat-input'
+                value='{{ $lat }}'>
+
+            <input type='hidden' class="form-control" name='long' id='long' test='long-input'
+                value='{{ $long }}'>
 
             <button type='submit' class='btn btn-primary' test='add-button'>Add Location</button>
 

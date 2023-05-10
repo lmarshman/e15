@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\RoutesController;
 use App\Http\Controllers\ListController;
+use App\Http\Controllers\TestController;
 
 Route::get('/', [RoutesController::class, 'homePage']);
 
@@ -42,8 +43,8 @@ Route::group(['middleware' => 'auth'], function () {
     // Route to delete location from user list
     Route::delete('/list/{name}/destroy', [ListController::class, 'destroy']);
 
-    // // Route to page to add locations from cityPlaces function (locations generated from an API call)
-    // Route::get('/list/{name}/places', [ListController::class, 'addCityPlaces']);
-    // // Route to function that processes adding cityPlaces generated location to Database
-    // Route::post('/list/{name}/places/new', [ListController::class, 'addCityPlacesLoc']);
+    // Route to page to add locations from cityPlaces function (locations generated from an API call)
+    Route::get('/list/{lat}/{long}/{name}/add', [ListController::class, 'addPlaceToList']);
+    // Route to function that processes adding cityPlaces generated location to Database
+    Route::post('/list/{name}/place/new/cities/change', [ListController::class, 'addPlace']);
 });

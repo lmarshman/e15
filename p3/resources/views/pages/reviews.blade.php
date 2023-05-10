@@ -44,10 +44,10 @@
             <div class="mb-3">
                 <h5>Write a review for {{ $location->name }}</h5>
                 <p>What did you think? Would you go again? Any tips or fun facts?</p>
-                <textarea type='textarea' class="form-control" name='review' id='review' rows="4"
+                <textarea type='textarea' class="form-control" name='review' id='review' test='review-text' rows="4"
                     value='{{ old('review') }}'></textarea>
             </div>
-            <button type='submit' test='create-review-link' class='btn btn-primary'>Post Review</button>
+            <button type='submit' class='btn btn-primary' test='create-review-button'>Post Review</button>
 
             @if (count($errors) > 0)
                 <ul class='alert alert-danger'>

@@ -65,7 +65,9 @@
                         </div>
                         <div class='d-grid
                             gap-2 d-md-flex justify-content-md-end'>
-                            <a href='/list/{{ $location->name }}/add'>Add to list</a>
+                            <a
+                                href='/list/{{ $place['geometry']['coordinates'][1] }}/{{ $place['geometry']['coordinates'][0] }}/{{ $place['properties']['name'] }}/add'>Add
+                                to list</a>
                         </div>
                         <ul>
                             <li name='long' class='hide'>{{ $place['geometry']['coordinates'][0] }} </li>

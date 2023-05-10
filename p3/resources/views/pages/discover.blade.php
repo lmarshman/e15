@@ -12,10 +12,10 @@
             <div class="mb-3">
                 <label class="form-label" for='city'>
                     What city would you like to explore?
-                    <input class="form-control" type='text' name='city' value='{{ old('city') }}'>
+                    <input test='discover-field' class="form-control" type='text' name='city' value='{{ old('city') }}'>
                 </label>
             </div>
-            <button type='submit' class='btn btn-primary'>Discover!</button>
+            <button type='submit' class='btn btn-primary' test='discover-btn'>Discover!</button>
         </form>
     </div>
 @endsection

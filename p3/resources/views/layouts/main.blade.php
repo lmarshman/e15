@@ -36,7 +36,7 @@
                 @endif
                 @if (!Auth::user())
                     <li class="nav-item">
-                        <a class="nav-link" href='/login'>Login</a>
+                        <a class="nav-link" href='/login' test='login-link'>Login</a>
                     </li>
                 @else
                     <form method='POST' id='logout' action='/logout'>
