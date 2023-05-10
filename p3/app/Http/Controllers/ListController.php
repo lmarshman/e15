@@ -24,7 +24,9 @@ class ListController extends Controller
     {
         $location = Location::where('name', '=', $name)->first();
 
-        return view('/list/addToList', ['location' => $location]);
+        $addedToList = $location->users()->where('user_id', $request->user()->id)->count() >= 1;
+
+        return view('/list/addToList', ['location' => $location, 'addedToList' => $addedToList]);
     }
 
     public function getAddress($lat, $long)

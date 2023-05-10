@@ -14,24 +14,32 @@
 @section('content')
     <h3 class='addressHeader'>Add {{ $location->name }} to your list?</h3>
 
-    <div class='addressForm'>
-        <form method='POST' action='/list/{{ $location->name }}/save'>
+    @if ($addedToList)
 
-            {{ csrf_field() }}
-            <div class="mb-3">
-                <label class="form-label" for='notes'>Would you like to add any notes for this location?</label>
-                <textarea class="form-control" name='notes' test='notes-textarea'>{{ old('notes') }}</textarea>
-            </div>
-            <button type='submit' test='add-to-list-button' class='btn btn-primary'>Add to your list</button>
-        </form>
+        <div class='onList'>
+            <h5>It looks like this location has already been added to your list. Try searching for new locations to add <a
+                    href="/pages/discover/cities">on the Discover page.</a></h5>
+        </div>
+    @else
+        <div class='addressForm'>
+            <form method='POST' action='/list/{{ $location->name }}/save'>
 
-        @if (count($errors) > 0)
-            <ul class='alert alert-danger'>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        @endif
+                {{ csrf_field() }}
+                <div class="mb-3">
+                    <label class="form-label" for='notes'>Would you like to add any notes for this location?</label>
+                    <textarea class="form-control" name='notes' test='notes-textarea'>{{ old('notes') }}</textarea>
+                </div>
+                <button type='submit' test='add-to-list-button' class='btn btn-primary'>Add to your list</button>
+            </form>
+
+            @if (count($errors) > 0)
+                <ul class='alert alert-danger'>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            @endif
+    @endif
 
     </div>
 @endsection
