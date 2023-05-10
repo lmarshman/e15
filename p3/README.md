@@ -4,18 +4,18 @@
 
 # Feature Summary
 + Visitors can register/log in
-+ •	Visitors can search for “locations” by city via the Discover page and add them to their lists.
-    + o	The page will return results from the database (locations entered by the user) as well as locations returned from an API called [OpenTripMap API](https://opentripmap.io/product). I had originally chosen this API because its documentation looked like the API returned a picture and description for most results. Unfortunately, once I started working with the API, I realized that wasn’t the case. In order to get those details, I would have had to go subscribe to an additional API. This felt like perhaps I was overloading my project with API’s. To work around this, I created an additional form page that pre-fills the name and address information for the location. The user is then asked to add a picture url, location website, and a description.
-    +  o	My database seeders provide examples for Boston, San Francisco, and Tokyo. At the moment, my app is optimized for US locations, but you can search internationally and I wanted to provide examples of what that might look like.
-    + o	Users are able to leave reviews for locations via the Discover page. 
++ Visitors can search for “locations” by city via the Discover page and add them to their lists.
+    + The page will return results from the database (locations entered by the user) as well as locations returned from an API called [OpenTripMap API](https://opentripmap.io/product). I had originally chosen this API because its documentation looked like the API returned a picture and description for most results. Unfortunately, once I started working with the API, I realized that wasn’t the case. In order to get those details, I would have had to go subscribe to an additional API. This felt like perhaps I was overloading my project with API’s. To work around this, I created an additional form page that pre-fills the name and address information for the location. The user is then asked to add a picture url, location website, and a description.
+    +  My database seeders provide examples for Boston, San Francisco, and Tokyo. At the moment, my app is optimized for US locations, but you can search internationally and I wanted to provide examples of what that might look like.
+    + Users are able to leave reviews for locations via the Discover page. 
 +•	Users can add locations directly to the site via the Add a new location page.
-    + o	Currently the add page is optimized for US locations. As a development opportunity, the page can be expanded to better handle international locations.
-+ •	Users can add and delete locations from their list of locations. Additionally, a user can add notes they’d like to remember about the location.
+    + Currently the add page is optimized for US locations. As a development opportunity, the page can be expanded to better handle international locations.
++ Users can add and delete locations from their list of locations. Additionally, a user can add notes they’d like to remember about the location.
 
 # Database Summary
-+•	My application has 3 tables in total (users, locations, and reviews)
-    +o	There's a many-to-many relationship between users and locations
-    +o	There's a one-to-many relationship between reviews and locations
++ My application has 3 tables in total (users, locations, and reviews)
+    + There's a many-to-many relationship between users and locations
+    + There's a one-to-many relationship between reviews and locations
 
 # Outside Resources
 (https://rapidapi.com/blog/google-maps-geocoding-api/)
